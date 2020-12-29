@@ -1,24 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login';
+import {BrowserRouter as Router, Switch} from 'react-router-dom';
+import Route from 'react-router-dom/Route'
+import Registration from './components/Registration';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div>
+      <Switch>
+      <Route path="/" exact render={
+        ()=>{
+          return (<Login/>)
+        }
+      }/>
+
+      <Route path="/Registration" exact render={
+        ()=>{
+          return (<Registration/>)
+        }
+      }/>
+      
+      <Route render={
+        ()=>{
+          return (<h2>404-----Error found</h2>)
+        }
+      }/>
+
+
+    </Switch>  
     </div>
+    </Router>
   );
 }
 
