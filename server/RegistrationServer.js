@@ -1,6 +1,8 @@
 
 var mysql=require('mysql');
 
+
+// database connection
 const conn=mysql.createConnection({
     host:"localhost",
     user:"root",
@@ -11,6 +13,8 @@ const conn=mysql.createConnection({
 
 
 exports.insert=function(req,res){
+    //variable that should be added into user table 
+    var username,password,fullname,mobile,email;
 
 
     username=req.body.username;

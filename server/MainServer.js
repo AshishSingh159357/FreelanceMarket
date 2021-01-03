@@ -1,16 +1,13 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var mysql=require('mysql');
 const cors=require('cors');
-var registration=require('./Registration');
 
 
-// database connection
+// All user-defeind module 
+var registration=require('./RegistrationServer');
 
 
-//variable that should be added into user table 
-var username,password,fullname,mobile,email;
 
 // declaration of host and port for server
 var host = 'localhost';
@@ -27,11 +24,9 @@ app.use(cors());
 
 
 
-//fetching data from registration url
+
+//fetching data from registration url and then insert that data into database
 app.post('/registration',registration.insert);
-
-
-
 
 
 app.get('/kk', function (req, res) {
@@ -42,6 +37,8 @@ app.get('/kk', function (req, res) {
  })
  
 
+
+// this is the server running code
 var server = app.listen(3001, function () {
    console.log("Example app listening at http://%s:%s", host, port)
 })
