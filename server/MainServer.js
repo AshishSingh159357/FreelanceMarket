@@ -6,7 +6,7 @@ const cors=require('cors');
 
 // All user-defeind module 
 var registration=require('./RegistrationServer');
-
+var login=require('./LoginServer');
 
 
 // declaration of host and port for server
@@ -17,7 +17,7 @@ var port = 3001;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
- 
+
 // parse application/json
 app.use(bodyParser.json())
 app.use(cors());
@@ -29,13 +29,8 @@ app.use(cors());
 app.post('/registration',registration.insert);
 
 
-app.get('/kk', function (req, res) {
-    
-    //console.log('-------------',req.body);
-    res.send('jj');
-   
- })
- 
+app.post('/login', login.ValidateUser);
+
 
 
 // this is the server running code
