@@ -1,5 +1,6 @@
 .Main {
     background-color: whitesmoke;
+    height: 100vh;
   
   }
   
@@ -9,7 +10,7 @@
     display: flex;
     justify-content: center;
     font-family: cursive;
-  
+    height: 100%;
   
   }
   
@@ -38,8 +39,8 @@
   
   }
   
-  .login {
-    margin-top: 20px;
+  .registration {
+    
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -49,7 +50,7 @@
     width: 400px;
     border-radius: 5px;
     animation-name: example;
-    animation-duration: 2s;
+    animation-duration: 1s;
     padding: 20px;
   }
   

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import './componentCss/Registration.css';
+import './componentCss/Form.css';
 export default class Registration extends Component {
 
 
@@ -80,20 +80,20 @@ export default class Registration extends Component {
         return (
             <div className="Main">
                 <div className="container">
-                    <div className="login">
-                        <h2>Login</h2>
+                    <div className="registration">
+                        <h2>Regiter</h2>
                         <form>
-                            <input className="fulName-input" type="text" name="fullName" placeholder="Full Name" />
-                            <input className="email-input" type="text" name="email" placeholder="Email" />
-                            <input className="username-input" type="text" name="username" placeholder="Username" />
-                            <input className="mobile-input" type="text" name="Mobile" placeholder="Mobile" />
-                            <input className="password-input" type="text" name="password" placeholder="Password" />
-                            <input className="confirm-password-input" type="text" name="confirm-password"
-                                placeholder="Confirm Password" />
+                            <input className="fulName-input" type="text" name="fullname" placeholder="Full Name" onChange={(e) => this.onChangeInput(e)}/>
+                            <input className="email-input" type="text" name="email" placeholder="Email" onChange={(e) => this.onChangeInput(e)}/>
+                            <input className="username-input" type="text" name="username" placeholder="Username" onChange={(e) => this.onChangeInput(e)}/>
+                            <input className="mobile-input" type="text" name="mobile" placeholder="Mobile" onChange={(e) => this.onChangeInput(e)}/>
+                            <input className="password-input" type="text" name="password" placeholder="Password" onChange={(e) => this.onChangeInput(e)}/>
+                            <input className="confirm-password-input" type="text" name="confirm"
+                                placeholder="Confirm Password" onChange={(e) => this.onChangeInput(e)}/>
                         </form>
-                        <button className="login-button" type="submit" name="submit">Login</button>
+                        <button className="login-button" type="submit" name="submit" onClick={this.validateForm.bind(this)}>Regiter</button>
                         <div>
-                            <h5>Already Have Account?<a href="#">Login</a></h5>
+                            <h5>Already Have Account?<a href="/">Login</a></h5>
                         </div>
                     </div>
                 </div>
