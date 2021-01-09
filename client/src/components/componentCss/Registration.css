@@ -8,6 +8,8 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    font-family: cursive;
+  
   
   }
   
@@ -37,6 +39,7 @@
   }
   
   .login {
+    margin-top: 20px;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -47,6 +50,7 @@
     border-radius: 5px;
     animation-name: example;
     animation-duration: 2s;
+    padding: 20px;
   }
   
   @keyframes example {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import './componentCss/Registratio'
+import './componentCss/Registration.css';
 export default class Registration extends Component {
 
 
@@ -78,20 +78,20 @@ export default class Registration extends Component {
 
     render() {
         return (
-            <div>
-                <div class="container">
-                    <div class="login">
+            <div className="Main">
+                <div className="container">
+                    <div className="login">
                         <h2>Login</h2>
                         <form>
-                            <input class="fulName-input" type="text" name="fullName" placeholder="Full Name" />
-                            <input class="email-input" type="text" name="email" placeholder="Email" />
-                            <input class="username-input" type="text" name="username" placeholder="Username" />
-                            <input class="mobile-input" type="text" name="Mobile" placeholder="Mobile" />
-                            <input class="password-input" type="text" name="password" placeholder="Password" />
-                            <input class="confirm-password-input" type="text" name="confirm-password"
+                            <input className="fulName-input" type="text" name="fullName" placeholder="Full Name" />
+                            <input className="email-input" type="text" name="email" placeholder="Email" />
+                            <input className="username-input" type="text" name="username" placeholder="Username" />
+                            <input className="mobile-input" type="text" name="Mobile" placeholder="Mobile" />
+                            <input className="password-input" type="text" name="password" placeholder="Password" />
+                            <input className="confirm-password-input" type="text" name="confirm-password"
                                 placeholder="Confirm Password" />
                         </form>
-                        <button class="login-button" type="submit" name="submit">Login</button>
+                        <button className="login-button" type="submit" name="submit">Login</button>
                         <div>
                             <h5>Already Have Account?<a href="#">Login</a></h5>
                         </div>
