@@ -1,5 +1,28 @@
 var mysql = require("mysql");
+//var express = require('express');
+//var app = express();
+//var cookieParser=require('cookie-parser');
+//var session = require('express-session');
+//const cors=require('cors');
 
+
+/*app.use(cors({
+    origin:["http://localhost:3000"],
+    methods:["GET","POST"],
+    credentials:true
+ }));
+ app.use(cookieParser())
+ app.use(session({
+    key:"userId",
+    secret:"subscribe",
+    resave:false,
+    saveUninitialized:false,
+    cookie:{
+       expires:60 * 60 *24,
+    },
+ }));
+*/
+ 
 var conn = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -20,10 +43,12 @@ exports.ValidateUser = function (req, respond) {
         }
         else {
             if(result[0]){
-                respond.send("true");
+                //req.session.user = result[0]
+               // console.log(req.session.user);
+                respond.send(true);
             }
             else{
-                respond.end("false");
+                respond.end(false);
             }
            
         }

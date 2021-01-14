@@ -1,0 +1,92 @@
+.Main {
+    background-color: whitesmoke;
+    height: 100vh;
+  
+  }
+  
+  .container {
+  
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    height: 100%;
+  
+  }
+  
+  
+  
+  input {
+  
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+    margin: 20px 50px 20px 50px;
+    padding-top: 10px;
+    width: 100%;
+    background-color: transparent;
+  
+  
+  
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: rgb(75, 130, 212);
+    color: rgb(75, 130, 212);
+  
+  
+  
+  }
+  
+  .registration {
+    
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 5px 5px grey;
+    background-color: white;
+    width: 400px;
+    border-radius: 5px;
+    animation-name: example;
+    animation-duration: 1s;
+    padding: 20px;
+  }
+  
+  @keyframes example {
+    0% {
+        transform: translate(-50%,-50%) rotate(360deg);
+       
+    }
+  
+   
+    100%{
+        transform: translate(0,0);
+       
+    }
+  }
+  
+  .login div h5 a {
+    text-decoration: none;
+  }
+  
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  
+  }
+  
+  .login-button {
+    background-color: rgb(37, 110, 179);
+    width: 70%;
+    border-style: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    border-radius: 5px;
+  }
