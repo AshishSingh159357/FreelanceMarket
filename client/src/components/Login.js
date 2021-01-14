@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
 import './componentCss/LoginCss.css';
 import axios from 'axios';
+import home from './Home'
+import { Link, Redirect } from 'react-router-dom';
+import Route from 'react-router-dom/Route'
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
 
 
 export default class Login extends Component {
 
    constructor(props) {
       super(props);
+      let login=false
       this.state = {
          username: "",
          password: "",
-         login: "t"
+         login
 
       }
       this.changeInput = this.changeInput.bind(this);
       this.validate = this.validate.bind(this);
+
+      //axios.defaults.withCredentials=true;
    }
 
 
@@ -29,21 +35,29 @@ export default class Login extends Component {
    }
    */
 
+  
    validate() {
       var Data = {
          username: this.state.username,
          password: this.state.password
       }
 
+      
       axios.post('http://localhost:3001/login', Data)
          .then(function (response) {
-            //this.setState({login:response.data});
-            alert(response.data);
-         })
+            if(response.data){
+               localStorage.setItem("token","kjnkjnkjnkj");
+               this.setState({login:response.data});
+            }
+            else{
+               this.setState({login:response.data});
+            }
+            
+           
+         }.bind(this))
          .catch(function (error) {
             console.log(error);
          });
-
 
       // this.callAPI();
       // alert(this.state.login);
@@ -62,24 +76,30 @@ export default class Login extends Component {
    }
 
    render() {
-      return (
-         <div className="Main">
+      if (this.state.login) {
+         return <Redirect to="/home" />
+      }
+      else {
+         return  (
+            <div className="Main">
 
-            <div className="container">
-               <div className="login">
-                  <h2>Login</h2>
-                  <form>
-                     <input className="username-input" type="text" name="username" placeholder="Username" onChange={(e) => this.changeInput(e)} />
-                     <input className="password-input" type="text" name="password" placeholder="Password" onChange={(e) => this.changeInput(e)} />
+               <div className="container">
+                  <div className="login">
+                     <h2>Login</h2>
+                     <form>
+                        <input className="username-input" type="text" name="username" placeholder="Username" onChange={(e) => this.changeInput(e)} />
+                        <input className="password-input" type="text" name="password" placeholder="Password" onChange={(e) => this.changeInput(e)} />
                      </form>
-                  <button className="login-button" type="submit" name="submit" onClick={this.validate}>Login</button>
-                  <div>
-                     <h5>Not Have Account?<a href="/registration">Register</a></h5>
+                     <button className="login-button" type="submit" name="submit" onClick={this.validate}>Login</button>
+                     <div>
+                        <h5>Not Have Account?<a href="/registration">Register</a></h5>
+                     </div>
                   </div>
                </div>
-            </div>
 
-         </div>
-      )
+            </div>
+         )
+
+      }
    }
 }

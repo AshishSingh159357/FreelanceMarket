@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 const cors=require('cors');
-
+//var cookieParser=require('cookie-parser');
+//var session = require('express-session');
 
 // All user-defeind module 
 var registration=require('./RegistrationServer');
@@ -16,14 +17,31 @@ var port = 3001;
 
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(cors());
+/*app.use(cors({
+   origin:["http://localhost:3000"],
+   methods:["GET","POST"],
+   credentials:true
+}));
+app.use(cookieParser())
+app.use(session({
+   key:"userId",
+   secret:"subscribe",
+   resave:false,
+   saveUninitialized:false,
+   cookie:{
+      expires:60 * 60 *24,
+   },
+}));
 
-
-
+*/
 
 //fetching data from registration url and then insert that data into database
 app.post('/registration',registration.insert);
