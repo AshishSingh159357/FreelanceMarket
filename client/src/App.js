@@ -6,7 +6,7 @@ import Route from 'react-router-dom/Route'
 import Registration from './components/Registration';
 import Home from './components/Home';
 
-
+import Dashboard from './components/Dashboard';
 
 
 function App() {
@@ -14,14 +14,15 @@ function App() {
     <Router>
       <div>
         <Switch>
-        
-        
-         <Route path="/home" render={
+
+
+
+          <Route path="/home" render={
             () => {
               return (<Home />)
             }
           } />
-        
+
 
           <Route path="/" exact render={
             () => {
@@ -36,11 +37,21 @@ function App() {
             }
           } />
 
+
+          <Route path="/dashboard" exact render={
+            () => {
+              return (<Dashboard />)
+            }
+          } />
+
+
           <Route render={
             () => {
               return (<h2>404-----Error found</h2>)
             }
           } />
+
+
 
         </Switch>
       </div>
