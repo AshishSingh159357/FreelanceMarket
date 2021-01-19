@@ -37,17 +37,17 @@ export default class Dashboard extends Component {
                 <Navbar/>
 
 
-                <div class="container2">
-                    <div class="heading">
+                <div className="container2">
+                    <div className="heading">
                         <h4>On Going Projects</h4>
                     </div>
-                    <div class="Active-project-list">
+                    <div className="Active-project-list">
                         <ul>
-                            <li class="Project-Title"><a href="#">ProjectTitle</a></li>
-                            <li class="Duration">Duration</li>
-                            <li class="Pricing">Pricing</li>
+                            <li className="Project-Title"><a href="#">ProjectTitle</a></li>
+                            <li className="Duration">Duration</li>
+                            <li className="Pricing">Pricing</li>
                         </ul>
-                        <div class="Requirement">
+                        <div className="Requirement">
                             <h5>Requirement :</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus beatae omnis quasi in officia
                             perspiciatis quaerat nam accusamus ad obcaecati ab nostrum illum necessitatibus nesciunt id deserunt

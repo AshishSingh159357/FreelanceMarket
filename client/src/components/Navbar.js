@@ -12,16 +12,16 @@ export default class Navbar extends Component {
     render() {
         return (
             <div>
-                <div class="Navbar-container">
-                    <div class="navbar">
+                <div className="Navbar-container">
+                    <div className="navbar">
                         <ul>
-                            <li class="Dashboard">Dashboard</li>
-                            <li class="Gig">Gig</li>
-                            <li class="Projects">Projects</li>
-                            <li class="Inbox">Inbox</li>
+                            <li className="Dashboard">Dashboard</li>
+                            <li className="Gig">Gig</li>
+                            <li className="Projects">Projects</li>
+                            <li className="Inbox">Inbox</li>
                         </ul>
                         <div>
-                        <button class="switch-interface">Button</button>
+                        <button className="switch-interface">Button</button>
                         <a href="/" onClick={this.logout.bind(this)}>log out</a>
                         </div>
                     </div>
