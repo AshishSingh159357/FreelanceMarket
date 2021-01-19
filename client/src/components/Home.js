@@ -7,13 +7,13 @@ export default class Home extends Component {
     constructor(props) {
         super(props)
         const token = localStorage.getItem("token");
-        var login="true";
-        
-    
-        if (token==null) {
+        var login = "true";
+
+
+        if (token == null) {
             //this.setState({login:"false"})
-          
-          login="false"
+
+            login = "false"
         }
         this.state = {
             login
@@ -23,20 +23,20 @@ export default class Home extends Component {
 
 
 
-logout(){
-    localStorage.removeItem("token");
-}
+    logout() {
+        localStorage.removeItem("token");
+    }
 
-  
+
     render() {
-        if(this.state.login == "false") {
+        if (this.state.login == "false") {
             return <Redirect to="/" />
         }
         return (
             <div>
-              {this.state.login}
+                {this.state.login}
                 Welcome to FreelanceMarket
-              <Link to="/" onClick={this.logout.bind(this)}>ok</Link>
+                <Link to="/" onClick={this.logout.bind(this)}>ok</Link>
             </div>
         )
 

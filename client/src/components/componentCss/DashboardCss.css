@@ -1,0 +1,77 @@
+.container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.heading {
+    width: 90%;
+    height:50px;
+    background-color: whitesmoke;
+    padding-left: 20px;
+    margin-top: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.Active-project-list {
+    width: 90%;
+    background-color: whitesmoke;
+    padding-left: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.Active-project-list ul {
+    display: flex;
+    font-size: 18px;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    margin: 0px;
+    height: 40px;
+    align-items: center;
+
+}
+
+.Project-Title {
+    flex-basis: 1100px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.Duration {
+    flex-basis: 400px;
+    border-left: solid 1px black;
+    padding-left: 20px;
+
+}
+
+.Pricing {
+    flex-basis: 400px;
+    border-left: solid 1px black;
+    padding-left: 20px;
+}
+
+.Requirement {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: none;
+    transition: display 1s;
+
+}
+
+
+.Active-project-list ul:hover+.Requirement {
+    display: block;
+}
