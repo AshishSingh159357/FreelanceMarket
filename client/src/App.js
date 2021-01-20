@@ -5,9 +5,8 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import Route from 'react-router-dom/Route'
 import Registration from './components/Registration';
 import Home from './components/Home';
-
 import Dashboard from './components/Dashboard';
-
+import GigDetail from './components/GigDetail';
 
 function App() {
   return (
@@ -41,6 +40,12 @@ function App() {
           <Route path="/dashboard" exact render={
             () => {
               return (<Dashboard />)
+            }
+          } />
+
+          <Route path="/Gig-detail-submit" exact render={
+            () => {
+              return (<GigDetail />)
             }
           } />
 

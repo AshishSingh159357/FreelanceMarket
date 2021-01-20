@@ -30,6 +30,9 @@ var conn = mysql.createConnection({
     database: "freelancemarket"
 })
 conn.connect();
+
+
+
 exports.ValidateUser = function (req, respond) {
 
 
@@ -48,7 +51,7 @@ exports.ValidateUser = function (req, respond) {
                 respond.send(true);
             }
             else{
-                respond.end(false);
+                respond.send(false);
             }
            
         }

@@ -1,17 +1,23 @@
 .Navbar-container{
     font-family: Arial, Helvetica, sans-serif;
-    background-color:rgb(66, 211, 66);
+   /* background-color:rgb(66, 211, 66);*/
+   background-color: rgb(50, 194, 98);
     color: whitesmoke;
-    
-    
-  
+
 }
+.nav-item{
+    color:whitesmoke;
+    
+}
+.nav-item:hover{
+    text-decoration: none;
+}
+
 .navbar{
     display:flex;
     flex-direction:row;
     justify-content:space-between;
-    align-items:center;
-   
+
     
 }
 .navbar ul{
@@ -22,13 +28,18 @@
     justify-content:space-around;
     align-items: center;
     flex-basis: 500px;
-    padding-top: 10px;
+   
+}
 
+.navbar ul li{
+    padding-top: 10px;
 }
 .navbar button{
     outline:none;
     margin-right: 20px;
-    background-color:rgb(87, 152, 236);
+    /*background-color:rgb(87, 152, 236);*/
+    background-color: rgb(18, 142, 214);
+    border-radius:5px;
     border-style: none;
     padding:7px 20px 7px 20px;
     cursor: pointer;

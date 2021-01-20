@@ -16,7 +16,20 @@
   
   
   
-  input {
+  .login input {
+  
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+    margin: 20px 50px 20px 50px;
+    padding-top: 10px;
+    width: 100%;
+    background-color: transparent;
+  
+  
+  
+  }
+  .registration input {
   
     border-left-style: none;
     border-right-style: none;
@@ -30,14 +43,19 @@
   
   }
   
-  input:focus {
+  
+  .login input:focus {
     outline: none;
     border-color: rgb(75, 130, 212);
     color: rgb(75, 130, 212);
-  
-  
-  
   }
+  .registration input:focus {
+    outline: none;
+    border-color: rgb(75, 130, 212);
+    color: rgb(75, 130, 212);
+  }
+
+
   
   .registration {
     
