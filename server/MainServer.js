@@ -8,7 +8,7 @@ const cors=require('cors');
 // All user-defeind module 
 var registration=require('./RegistrationServer');
 var login=require('./LoginServer');
-
+var GigDetail=require("./GigDetailServer");
 
 // declaration of host and port for server
 var host = 'localhost';
@@ -46,9 +46,11 @@ app.use(session({
 //fetching data from registration url and then insert that data into database
 app.post('/registration',registration.insert);
 
-
 app.post('/login', login.ValidateUser);
 
+app.post('/GigDetail',GigDetail.insert);
+
+app.post('/Gig',GigDetail.retrive);
 
 
 // this is the server running code

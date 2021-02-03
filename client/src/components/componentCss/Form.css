@@ -88,6 +88,9 @@
   .login div h5 a {
     text-decoration: none;
   }
+  .registration div h5 a {
+    text-decoration: none;
+  }
   
   
   form {
@@ -108,3 +111,4 @@
     color: white;
     border-radius: 5px;
   }
+  

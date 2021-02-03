@@ -17,13 +17,13 @@ export default class Navbar extends Component {
                       
                             <ul>
                                 <li className="Dashboard"><a class="nav-item" href="/dashboard">Dashboard</a></li>
-                                <li className="Gig"><a class="nav-item" href="/Gig-detail-submit">Gig</a></li>
+                                <li className="Gig"><a class="nav-item" href="/Gig">Gig</a></li>
                                 <li className="Projects">Projects</li>
                                 <li className="Inbox">Inbox</li>
                             </ul>
                       
                         <div>
-                            <button className="switch-interface">Button</button>
+                            <button className="switch-interface">Switch</button>
                             <a href="/" onClick={this.logout.bind(this)}>log out</a>
                         </div>
                     </div>

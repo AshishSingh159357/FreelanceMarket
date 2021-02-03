@@ -12,7 +12,7 @@ const conn = mysql.createConnection({
     database: "freelancemarket"
 })
 
-
+conn.connect();
 
 // this is the function to insert user data in to database
 exports.insert = function (req, res) {
@@ -34,29 +34,19 @@ exports.insert = function (req, res) {
 
 
     // Inserting data into database in user table
-    let values = [username, email, password, fullname, mobile];
+    //let values = [username, email, password, fullname, mobile];
     let sql = "INSERT INTO user(username,email,password,fullname,mobile) VALUES ('" + username + "','" + email + "','" + password + "','" + fullname + "','" + mobile + "')";
 
-    conn.connect((err) => {
-        if (err) {
-            console.log("error in connection while inserting data into user table");
-        }
-        else {
-            conn.query(sql, values, (err, res) => {
+            conn.query(sql, (err, res) => {
                 if (err) {
-                    console.log("error is in query");
+                    console.log("error is in query",err);
                 }
                 else {
                     console.log("Record Updated")
                     console.log(res.affectedRows)
-                    conn.end()
+                   
 
                 }
 
             })
-        }
-    })
-    
-
-
 }

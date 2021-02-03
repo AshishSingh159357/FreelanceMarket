@@ -57,12 +57,9 @@ export default class Registration extends Component {
                 .catch(function (error) {
                     console.log(error);
                 });
-
+                    
             alert("Registration successfull");
-
         }
-
-
     }
 
     onChangeInput(event) {
