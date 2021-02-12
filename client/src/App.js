@@ -9,7 +9,7 @@ import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import GigDetail from './components/GigDetail';
 import GigDetailTable from './components/GigDetailTable';
-
+import Buyer from './components/BuyerInterface';
 
 
 
@@ -20,6 +20,12 @@ function App() {
     <Router>
       <div>
         <Switch>
+
+        <Route path="/Buyer" render={
+            () => {
+              return (<Buyer />)
+            }
+          } />
 
 
         <Route path="/Gig" render={

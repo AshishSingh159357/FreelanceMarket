@@ -23,7 +23,7 @@ export default class Navbar extends Component {
                             </ul>
                       
                         <div>
-                            <button className="switch-interface">Switch</button>
+                        <a href='/Buyer'><button className="switch-interface">Switch</button></a>
                             <a href="/" onClick={this.logout.bind(this)}>log out</a>
                         </div>
                     </div>

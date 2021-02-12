@@ -61,6 +61,24 @@ exports.retrive = function(req,respond){
             console.log("error is in query",err);
         }
         else {
+            console.log("retrive all specific data for Gig")
+            console.log(result);
+            respond.send(result);
+        }
+
+    })
+}
+
+
+exports.retriveAll = function(req,respond){
+
+    let sql='SELECT UserName,GigTitle,Pricing FROM gig';
+
+    conn.query(sql, (err, result) => {
+        if (err) {
+            console.log("error is in query",err);
+        }
+        else {
             console.log("retrive all data for Gig")
             console.log(result);
             respond.send(result);
@@ -68,3 +86,4 @@ exports.retrive = function(req,respond){
 
     })
 }
+

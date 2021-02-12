@@ -25,27 +25,26 @@ export default class Dashboard extends Component {
     }
 
 
-   
+
 
     render() {
         if (this.state.login == "false") {
             return <Redirect to="/" />
         }
         return (
-            <div>
+            <div class="DashboardContainer">
 
-                <Navbar/>
-
+                <Navbar />
 
                 <div className="container2">
                     <div className="heading">
-                        <h4>On Going Projects</h4>
+                        <h4>Active Projects</h4>
                     </div>
                     <div className="Active-project-list">
                         <ul>
-                            <li className="Project-Title"><a href="#">ProjectTitle</a></li>
-                            <li className="Duration">Duration</li>
-                            <li className="Pricing">Pricing</li>
+                            <li className="Project-Title"><a href="#">1. Make Hotel management Web-app</a></li>
+                            <li className="Duration">3 Days</li>
+                            <li className="Pricing">$100</li>
                         </ul>
                         <div className="Requirement">
                             <h5>Requirement :</h5>
@@ -56,7 +55,68 @@ export default class Dashboard extends Component {
                             dolores sequi!</p>
                             <h5>Delivery Time</h5>
                             <p>2days ago</p>
-                            
+
+                        </div>
+
+                    </div>
+
+
+                    <div className="Active-project-list">
+                        <ul>
+                            <li className="Project-Title"><a href="#">2. Music Web-app</a></li>
+                            <li className="Duration">3 Days</li>
+                            <li className="Pricing">$100</li>
+                        </ul>
+                        <div className="Requirement">
+                            <h5>Requirement :</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus beatae omnis quasi in officia
+                            perspiciatis quaerat nam accusamus ad obcaecati ab nostrum illum necessitatibus nesciunt id deserunt
+                            inventore nobis aperiam, magnam, consequuntur voluptates eius possimus rerum placeat. Nobis, sed
+                            quas. In vitae consequuntur quod sint repellat explicabo suscipit assumenda illo quis minus, alias
+                            dolores sequi!</p>
+                            <h5>Delivery Time</h5>
+                            <p>2days ago</p>
+
+                        </div>
+
+                    </div>
+
+                    <div className="Active-project-list">
+                        <ul>
+                            <li className="Project-Title"><a href="#">3. Make Transprotation management Web-app</a></li>
+                            <li className="Duration">3 Days</li>
+                            <li className="Pricing">$100</li>
+                        </ul>
+                        <div className="Requirement">
+                            <h5>Requirement :</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus beatae omnis quasi in officia
+                            perspiciatis quaerat nam accusamus ad obcaecati ab nostrum illum necessitatibus nesciunt id deserunt
+                            inventore nobis aperiam, magnam, consequuntur voluptates eius possimus rerum placeat. Nobis, sed
+                            quas. In vitae consequuntur quod sint repellat explicabo suscipit assumenda illo quis minus, alias
+                            dolores sequi!</p>
+                            <h5>Delivery Time</h5>
+                            <p>2days ago</p>
+
+                        </div>
+                    </div>
+
+
+                    <div className="Active-project-list">
+                        <ul>
+                            <li className="Project-Title"><a href="#">4. Restaurant application</a></li>
+                            <li className="Duration">3 Days</li>
+                            <li className="Pricing">$100</li>
+                        </ul>
+                        <div className="Requirement">
+                            <h5>Requirement :</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus beatae omnis quasi in officia
+                            perspiciatis quaerat nam accusamus ad obcaecati ab nostrum illum necessitatibus nesciunt id deserunt
+                            inventore nobis aperiam, magnam, consequuntur voluptates eius possimus rerum placeat. Nobis, sed
+                            quas. In vitae consequuntur quod sint repellat explicabo suscipit assumenda illo quis minus, alias
+                            dolores sequi!</p>
+                            <h5>Delivery Time</h5>
+                            <p>2days ago</p>
+
                         </div>
                     </div>
 

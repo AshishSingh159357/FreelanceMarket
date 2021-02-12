@@ -1,0 +1,47 @@
+.freelnacer-gigs-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 40px;
+    justify-content: center;
+    background-color: whitesmoke;
+    height: 100vh;
+
+
+}
+
+.freelancer-gig div img {
+    height: 100%;
+    width: 100%;
+    
+}
+.freelancer-gig div{
+  
+    
+}
+
+.freelancer-gig {
+    cursor: pointer;
+    height: 300px;
+    width: 200px;
+    margin: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+
+}
+.freelancer-gig:hover{
+    transform: scale(1.05);
+}
+
+.freelancer-gig small{
+    padding-left: 10px;
+}
+.freelancer-gig strong{
+    padding-left: 10px;
+}
+.freelancer-gig b{
+    padding-left: 10px;
+}

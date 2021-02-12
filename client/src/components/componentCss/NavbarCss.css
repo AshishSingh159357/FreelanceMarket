@@ -43,5 +43,10 @@
     padding:7px 20px 7px 20px;
     cursor: pointer;
     color:whitesmoke;
-
+}
+.navbar button:hover{
+    background-color:rgba(13, 100, 150, 1);
+}
+.navbar button:active{
+    background-color:rgba(19, 144, 216, 1);
 }

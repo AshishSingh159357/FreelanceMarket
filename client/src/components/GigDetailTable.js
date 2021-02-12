@@ -98,13 +98,7 @@ export default class GigDetailTable extends Component {
                         </tr>
 
                         ))}
-
-
-
-
-
-                      
-                      
+  
                     </table>
                 </div>
 

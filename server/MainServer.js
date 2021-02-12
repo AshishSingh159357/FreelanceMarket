@@ -52,8 +52,13 @@ app.post('/GigDetail',GigDetail.insert);
 
 app.post('/Gig',GigDetail.retrive);
 
+app.get('/GigAll',GigDetail.retriveAll);
+
 
 // this is the server running code
 var server = app.listen(3001, function () {
    console.log("Example app listening at http://%s:%s", host, port)
 })
+
+
+
