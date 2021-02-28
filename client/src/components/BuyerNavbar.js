@@ -21,6 +21,10 @@ export default class Navbar extends Component {
                         <button class="search-freelancer-button">Search</button>
                     </section>
                     <section class="section-3" >
+                        <a href="/PostProject"> <button type="button" class="switch-to-freelancer">
+                            Post
+                        </button></a>
+                        
                         <a href="/dashboard"> <button type="button" class="switch-to-freelancer">
                             Switch
                         </button></a>

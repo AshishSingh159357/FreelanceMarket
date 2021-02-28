@@ -2,13 +2,27 @@ import React, { Component } from 'react';
 import './componentCss/BuyerInterfaceCss.css';
 import Navbar from './BuyerNavbar';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Redirect, Link } from 'react-router-dom';
+
+
+
 export default class BuyerInterface extends Component {
     constructor(props){
         super(props)
         const gigs=[];
+        const token = localStorage.getItem("token");
+        var login = "true";
+
+
+        if (token == null) {
+            //this.setState({login:"false"})
+
+            login = "false"
+        }
 
         this.state={
-            gigs
+            gigs,
+            login
         }
     }
 
@@ -31,6 +45,9 @@ export default class BuyerInterface extends Component {
 
 
     render() {
+        if (this.state.login == "false") {
+            return <Redirect to="/" />
+        }
 
         var { gigs }=this.state;
 

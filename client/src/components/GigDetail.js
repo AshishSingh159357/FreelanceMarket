@@ -60,9 +60,6 @@ export default class GigDetail extends Component {
         });
             
     alert("Gig Created Successfully");
-
-
-      
     }
 
 

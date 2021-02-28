@@ -18,6 +18,7 @@ export default class Navbar extends Component {
                             <ul>
                                 <li className="Dashboard"><a class="nav-item" href="/dashboard">Dashboard</a></li>
                                 <li className="Gig"><a class="nav-item" href="/Gig">Gig</a></li>
+                                <li className="Gig"><a class="nav-item" href="/Browse">Browse</a></li>
                                 <li className="Projects">Projects</li>
                                 <li className="Inbox">Inbox</li>
                             </ul>

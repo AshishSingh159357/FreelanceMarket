@@ -3,38 +3,56 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login';
 import { BrowserRouter as Router, Switch, Redirect, Link } from 'react-router-dom';
-import Route from 'react-router-dom/Route'
+import Route from 'react-router-dom/Route';
 import Registration from './components/Registration';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import GigDetail from './components/GigDetail';
 import GigDetailTable from './components/GigDetailTable';
 import Buyer from './components/BuyerInterface';
-
-
-
+import PostProject from './components/PostProject';
+import BrowseProject from './components/BrowseProject';
+import PostProjectDetail from './components/PostProjectDetail';
 
 function App() {
+  var a = localStorage.getItem("Post_Project_name");
 
   return (
     <Router>
       <div>
         <Switch>
 
-        <Route path="/Buyer" render={
+          <Route path="/Browse" exact render={
+            () => {
+              return (<BrowseProject />)
+            }
+          } />
+
+
+          <Route path="/Browse/:id" component={PostProjectDetail} />
+
+
+          <Route path="/PostProject" exact render={
+            () => {
+              return (<PostProject />)
+            }
+          } />
+
+
+          <Route path="/Buyer" exact render={
             () => {
               return (<Buyer />)
             }
           } />
 
 
-        <Route path="/Gig" render={
+          <Route path="/Gig" exact render={
             () => {
               return (<GigDetailTable />)
             }
           } />
 
-          <Route path="/home" render={
+          <Route path="/home" exact render={
             () => {
               return (<Home />)
             }

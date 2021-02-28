@@ -9,6 +9,7 @@ const cors=require('cors');
 var registration=require('./RegistrationServer');
 var login=require('./LoginServer');
 var GigDetail=require("./GigDetailServer");
+var PostProject=require("./PostProjectServer");
 
 // declaration of host and port for server
 var host = 'localhost';
@@ -51,8 +52,11 @@ app.post('/login', login.ValidateUser);
 app.post('/GigDetail',GigDetail.insert);
 
 app.post('/Gig',GigDetail.retrive);
-
 app.get('/GigAll',GigDetail.retriveAll);
+
+app.post('/PostProject',PostProject.insert);
+app.post('/Browse',PostProject.findall);
+app.get('/Browse/:id',PostProject.findOne);
 
 
 // this is the server running code
