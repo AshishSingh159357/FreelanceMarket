@@ -10,6 +10,8 @@ var registration=require('./RegistrationServer');
 var login=require('./LoginServer');
 var GigDetail=require("./GigDetailServer");
 var PostProject=require("./PostProjectServer");
+var BidServer=require("./BidServer");
+
 
 // declaration of host and port for server
 var host = 'localhost';
@@ -57,6 +59,9 @@ app.get('/GigAll',GigDetail.retriveAll);
 app.post('/PostProject',PostProject.insert);
 app.post('/Browse',PostProject.findall);
 app.get('/Browse/:id',PostProject.findOne);
+
+
+app.post('/Bid',BidServer.insert);
 
 
 // this is the server running code

@@ -38,7 +38,6 @@ exports.insert = function(req,response){
                 }
 
             })
-
 }
 
 
@@ -81,7 +80,6 @@ let id = req.params.id;
             respond.send(result[0]);
             console.log(result[0]);
         }
-
     })
 
 }

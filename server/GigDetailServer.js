@@ -39,7 +39,7 @@ exports.insert = function (req, respond) {
                 }
                 else {
                     console.log("Gig Record Updated")
-                    console.log(result.affectedRows)
+                   
                   
 
                 }

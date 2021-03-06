@@ -43,7 +43,7 @@ exports.insert = function (req, res) {
                 }
                 else {
                     console.log("Record Updated")
-                    console.log(res.affectedRows)
+                
                    
 
                 }

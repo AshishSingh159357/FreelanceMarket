@@ -8,7 +8,8 @@ import Navbar from './Navbar';
 export default function PostProjectDetail({ match }) {
 
     const [item, setItem] = useState({});
-    const [bid, setBid] = useState(false);
+    const [bid, setBid] = useState({});
+  
 
 
 
@@ -23,9 +24,37 @@ export default function PostProjectDetail({ match }) {
     }, [])
 
 
-    function Bid() {
-        setBid(true);
 
+
+    function onChangeInput(event){
+        var name= event.target.name;
+        var value= event.target.value;
+        setBid({ [name] : value });
+    }
+
+
+
+
+
+    function Bid(){
+        var data={
+            BidUsername:localStorage.getItem("token"),
+            PostProjectId:item.Project_id,
+            Price:bid.Price,
+            Duration:bid.Duration,
+            Description:bid.Description
+
+        }
+
+        axios.post('http://localhost:3001/Bid',data)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+        alert("Offer Send Successfully");
     }
 
     return (
@@ -55,22 +84,23 @@ export default function PostProjectDetail({ match }) {
                     <div className="Offer-Price-Duration">
                         <div>
                             <h6>Offer Price</h6>
-                            <p className="dollar">$</p><input type="text" />
+                            <p className="dollar">$</p><input type="text" name="Price" onChange={(e) => onChangeInput(e)}/>
                         </div>
                         <div>
                             <h6>Duration</h6>
-                            <input type="text" /><p className="Days">Days</p>
+                            <input type="text" name="Duration" onChange={(e) => onChangeInput(e)}/><p className="Days">Days</p>
                         </div>
                     </div>
+
 
                     <div className="Offer-Description">
                         <div>
                             <h6>Offer Description</h6>
-                           <textarea ></textarea>
+                           <textarea name="Description" onChange={(e) => onChangeInput(e)}></textarea>
                         </div>
                     </div>
                     <div className="Send-Offer-Button">
-                        <button onClick={() => Bid()}>Send Offer</button>
+                        <button onClick={() => Bid()} >Send Offer</button>
                     </div>
                 </div>
 
