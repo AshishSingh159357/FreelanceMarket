@@ -24,14 +24,22 @@ export default class Navbar extends Component {
                         <a href="/PostProject"> <button type="button" class="switch-to-freelancer">
                             Post
                         </button></a>
-                        
+
                         <a href="/dashboard"> <button type="button" class="switch-to-freelancer">
                             Switch
                         </button></a>
-                        <a href="#">Log out</a>
+
+                        <div class="dropdown">
+                            <button class="dropbtn">Me</button>
+                            <div class="dropdown-content">
+                                <a href="/OfferList">Offer</a>
+                                <a href="/" onClick={this.logout.bind(this)}>Log out</a>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>
+
         )
     }
 }

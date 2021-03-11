@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 const cors=require('cors');
+const multer=require('multer');
 //var cookieParser=require('cookie-parser');
 //var session = require('express-session');
 
@@ -11,7 +12,7 @@ var login=require('./LoginServer');
 var GigDetail=require("./GigDetailServer");
 var PostProject=require("./PostProjectServer");
 var BidServer=require("./BidServer");
-
+var OfferList=require("./OfferServer");
 
 // declaration of host and port for server
 var host = 'localhost';
@@ -51,7 +52,8 @@ app.post('/registration',registration.insert);
 
 app.post('/login', login.ValidateUser);
 
-app.post('/GigDetail',GigDetail.insert);
+const upload=multer();
+app.post('/GigDetail',upload.single("file"),GigDetail.insert);
 
 app.post('/Gig',GigDetail.retrive);
 app.get('/GigAll',GigDetail.retriveAll);
@@ -59,6 +61,9 @@ app.get('/GigAll',GigDetail.retriveAll);
 app.post('/PostProject',PostProject.insert);
 app.post('/Browse',PostProject.findall);
 app.get('/Browse/:id',PostProject.findOne);
+
+app.post('/OfferList',OfferList.fetch);
+app.get('/OfferList/:id',OfferList.fOne);
 
 
 app.post('/Bid',BidServer.insert);

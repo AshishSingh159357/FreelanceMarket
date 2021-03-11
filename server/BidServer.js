@@ -20,7 +20,7 @@ exports.insert = function(req,response){
     //console.log(req.body);
     //variable that should be added into user table 
 
-
+    console.log(req.body.Price)
     // Inserting data into database in user table
    // let values = [localStorage.getItem("token"), req.body.gigTitle, password, fullname, mobile];
     let sql = "INSERT INTO Bid_Project(Post_Project_id,Amount,Delivery_Time,Description,Bid_Username) VALUES ('"+ req.body.PostProjectId +"','"+ req.body.Price +"','"+ req.body.Duration +"','"+  req.body.Description +"','" + username + "')";

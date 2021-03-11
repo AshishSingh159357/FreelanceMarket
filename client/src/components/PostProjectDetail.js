@@ -9,6 +9,8 @@ export default function PostProjectDetail({ match }) {
 
     const [item, setItem] = useState({});
     const [bid, setBid] = useState({});
+    const [Price, setPrice] = useState({});
+    const [Duration, setDuration] = useState({});
   
 
 
@@ -31,6 +33,16 @@ export default function PostProjectDetail({ match }) {
         var value= event.target.value;
         setBid({ [name] : value });
     }
+    function onChangeInput2(event){
+        var name= event.target.name;
+        var value= event.target.value;
+        setPrice({ [name] : value });
+    }
+    function onChangeInput3(event){
+        var name= event.target.name;
+        var value= event.target.value;
+        setDuration({ [name] : value });
+    }
 
 
 
@@ -40,14 +52,15 @@ export default function PostProjectDetail({ match }) {
         var data={
             BidUsername:localStorage.getItem("token"),
             PostProjectId:item.Project_id,
-            Price:bid.Price,
-            Duration:bid.Duration,
+            Price:Price.Price,
+            Duration:Duration.Duration,
             Description:bid.Description
 
         }
 
         axios.post('http://localhost:3001/Bid',data)
         .then(function (response) {
+           // alert(data.Price);
             console.log(response);
         })
         .catch(function (error) {
@@ -84,11 +97,11 @@ export default function PostProjectDetail({ match }) {
                     <div className="Offer-Price-Duration">
                         <div>
                             <h6>Offer Price</h6>
-                            <p className="dollar">$</p><input type="text" name="Price" onChange={(e) => onChangeInput(e)}/>
+                            <p className="dollar">$</p><input type="text" name="Price" onChange={(e) => onChangeInput2(e)}/>
                         </div>
                         <div>
                             <h6>Duration</h6>
-                            <input type="text" name="Duration" onChange={(e) => onChangeInput(e)}/><p className="Days">Days</p>
+                            <input type="text" name="Duration" onChange={(e) => onChangeInput3(e)}/><p className="Days">Days</p>
                         </div>
                     </div>
 

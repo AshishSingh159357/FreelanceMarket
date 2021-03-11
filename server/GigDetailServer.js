@@ -23,7 +23,8 @@ exports.insert = function (req, respond) {
     var Impression=0;
     var Clicks=0;
     var username=req.body.username;
-    console.log(req.body);
+    console.log(req.body)
+    console.log("file===",req.body.file);
     //variable that should be added into user table 
 
 
@@ -31,7 +32,6 @@ exports.insert = function (req, respond) {
    // let values = [localStorage.getItem("token"), req.body.gigTitle, password, fullname, mobile];
     let sql = "INSERT INTO gig(UserName,GigTitle,GigDescription,Pricing,GigStatus,DeliveryTime,Revision,Requirement,Impression,Clicks) VALUES ('" + username + "','" + req.body.gigTitle + "','" + req.body.gigDescription + "','" + req.body.gigPricing + "','" + GigStatus + "','" + req.body.gigDeliveryTime + "','" + req.body.gigRevision + "','" + req.body.gigRequirement + "','"+ Impression +"','"+ Clicks +"')";
    // let sql = "INSERT INTO gig(GigId,UserName,GigTitle,GigDescription,Pricing,GigStatus,DeliveryTime,Revision,Requirement,Impression,Clicks,DateTime) VALUES (12,'qwaszx','ds')";
-
   
             conn.query(sql, (err, result) => {
                 if (err) {
@@ -39,11 +39,8 @@ exports.insert = function (req, respond) {
                 }
                 else {
                     console.log("Gig Record Updated")
-                   
-                  
 
                 }
-
             })
 
 }

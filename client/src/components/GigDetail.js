@@ -70,6 +70,7 @@ export default class GigDetail extends Component {
         this.setState({
             file: URL.createObjectURL(event.target.files[0])
         })
+        alert(this.state.file);
     }
 
 
@@ -78,6 +79,8 @@ export default class GigDetail extends Component {
         var value= event.target.value;
         this.setState({ [name] : value });
     }
+
+  
 
 
 

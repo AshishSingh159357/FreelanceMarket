@@ -13,6 +13,9 @@ import Buyer from './components/BuyerInterface';
 import PostProject from './components/PostProject';
 import BrowseProject from './components/BrowseProject';
 import PostProjectDetail from './components/PostProjectDetail';
+import Offer from './components/Offer';
+import OfferList from './components/OfferList'
+
 
 function App() {
   var a = localStorage.getItem("Post_Project_name");
@@ -21,6 +24,17 @@ function App() {
     <Router>
       <div>
         <Switch>
+
+
+
+          <Route path="/OfferList" exact render={
+            () => {
+              return (< OfferList />)
+            }
+          } />
+
+          <Route path="/OfferList/:id"  component={Offer} />
+
 
           <Route path="/Browse" exact render={
             () => {
