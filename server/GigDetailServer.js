@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var p = require("./practice");
 var mysql = require('mysql');
+const multer=require('multer');
 
 
 // database connection
@@ -18,6 +19,9 @@ conn.connect();
 
 // this is the function to insert user data in to database
 exports.insert = function (req, respond) {
+
+
+
 
     var GigStatus=true;
     var Impression=0;

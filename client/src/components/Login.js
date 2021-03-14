@@ -12,12 +12,14 @@ export default class Login extends Component {
 
    constructor(props) {
       super(props);
-      let login=false
+      let login = false
       this.state = {
          username: "",
          password: "",
+         UsernameError: "",
+         PasswordError: "",
          login
-
+      
       }
       this.changeInput = this.changeInput.bind(this);
       this.validate = this.validate.bind(this);
@@ -35,25 +37,35 @@ export default class Login extends Component {
    }
    */
 
-  
+
    validate() {
+
       var Data = {
          username: this.state.username,
          password: this.state.password
       }
 
-      
+      //validating Username if it is empty
+      if(!this.state.username || !this.state.password)
+      {
+         this.setState({UsernameError:"Fields should not be empty"});
+         return ;
+      }
+      else{
+         this.setState({UsernameError:""});
+      }
+
       axios.post('http://localhost:3001/login', Data)
          .then(function (response) {
-            if(response.data){
-               localStorage.setItem("token",Data.username);
-               this.setState({login:response.data});
+            if (response.data) {
+               localStorage.setItem("token", Data.username);
+               this.setState({ login: response.data });
             }
-            else{
-               this.setState({login:response.data});
+            else {
+               this.setState({ UsernameError: "Invalid Username or password" });
             }
-            
-           
+
+
          }.bind(this))
          .catch(function (error) {
             console.log(error);
@@ -80,7 +92,7 @@ export default class Login extends Component {
          return <Redirect to="/dashboard" />
       }
       else {
-         return  (
+         return (
             <div className="Main">
 
                <div className="container">
@@ -90,6 +102,10 @@ export default class Login extends Component {
                         <input className="username-input" type="text" name="username" placeholder="Username" onChange={(e) => this.changeInput(e)} />
                         <input className="password-input" type="text" name="password" placeholder="Password" onChange={(e) => this.changeInput(e)} />
                      </form>
+                     <div style={{ color: 'red' }}>
+                           {this.state.UsernameError}
+                        </div>
+
                      <button className="login-button" type="submit" name="submit" onClick={this.validate}>Login</button>
                      <div>
                         <h5>Not Have Account?<a href="/registration">Register</a></h5>

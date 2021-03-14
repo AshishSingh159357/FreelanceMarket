@@ -37,6 +37,7 @@ export default class GigDetail extends Component {
 
 
     validateForm() {
+        
 
       var  data={
             
@@ -53,7 +54,7 @@ export default class GigDetail extends Component {
 
         axios.post('http://localhost:3001/GigDetail', data)
         .then(function (response) {
-            console.log(response);
+            alert(response);
         })
         .catch(function (error) {
             console.log(error);
@@ -70,7 +71,7 @@ export default class GigDetail extends Component {
         this.setState({
             file: URL.createObjectURL(event.target.files[0])
         })
-        alert(this.state.file);
+        //alert(this.state.file);
     }
 
 
@@ -121,7 +122,7 @@ export default class GigDetail extends Component {
 
 
                         <div className="upload-image-section">
-                            <input type="file" name="Image" onChange={this.handleChange}/>
+                            <input type="file" name="file" onChange={this.handleChange}/>
                             <img src={this.state.file} />
                         </div>
 
