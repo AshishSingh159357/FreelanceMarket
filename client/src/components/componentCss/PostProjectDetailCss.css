@@ -1,10 +1,10 @@
 
 .Project-Detail-Container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     background-color: whitesmoke;
-    height: 100vh;
+    align-items: center;
 
 }
  .Project-Detail{
@@ -71,7 +71,7 @@
     margin:10px;
     box-shadow:2px 2px 2px 2px grey;
     border-radius: 5px;
-    max-height: 50%;
+    max-height: 20%;
     
 
 }

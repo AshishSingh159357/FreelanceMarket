@@ -93,16 +93,16 @@ export default function PostProjectDetail({ match }) {
 
 
 
+
                 <div className="Offer-Detail">
                     <div className="Offer-Price-Duration">
                         <div>
                             <h6>Offer Price</h6>
-                            <p className="dollar">$</p><input type="text" name="Price" onChange={(e) => onChangeInput2(e)}/>
+                           {/**<p className="dollar">$</p> */} <input type="text" name="Price" onChange={(e) => onChangeInput2(e)}/>
                         </div>
                         <div>
                             <h6>Duration</h6>
-                            <input type="text" name="Duration" onChange={(e) => onChangeInput3(e)}/><p className="Days">Days</p>
-                        </div>
+                            <input type="text" name="Duration" onChange={(e) => onChangeInput3(e)}/>{/*<p className="Days">Days</p>*/}                        </div>
                     </div>
 
 
@@ -116,6 +116,11 @@ export default function PostProjectDetail({ match }) {
                         <button onClick={() => Bid()} >Send Offer</button>
                     </div>
                 </div>
+
+
+
+
+               
 
 
 

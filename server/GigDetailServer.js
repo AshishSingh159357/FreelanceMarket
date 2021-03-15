@@ -40,9 +40,11 @@ exports.insert = function (req, respond) {
             conn.query(sql, (err, result) => {
                 if (err) {
                     console.log("error is in query",err);
+                    respond.send("0");
                 }
                 else {
-                    console.log("Gig Record Updated")
+                    console.log("Gig Record Updated");
+                    respond.send("1");
 
                 }
             })

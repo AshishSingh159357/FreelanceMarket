@@ -15,7 +15,7 @@ const conn = mysql.createConnection({
 conn.connect();
 
 // this is the function to insert user data in to database
-exports.insert = function (req, res) {
+exports.insert = function (req, respond) {
 
 
     
@@ -40,11 +40,11 @@ exports.insert = function (req, res) {
             conn.query(sql, (err, res) => {
                 if (err) {
                     console.log("error is in query",err);
+                    respond.send("0");
                 }
                 else {
-                    console.log("Record Updated")
-                
-                   
+                    console.log("Record Updated");
+                    respond.send("1");
 
                 }
 
