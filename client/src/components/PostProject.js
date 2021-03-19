@@ -21,27 +21,31 @@ export default class PostProject extends Component {
 
 
         this.state = {
-          
+
             gigTitle: "",
             gigDescription: "",
             gigPricing: 0,
             gigDeliveryTime: 0,
-          login
+            gigSkill:"",
+            login
         }
-       
+
     }
 
 
 
     Post() {
-
+        var CurrMaxId=0;
+        
+        
         var data = {
-
+            MaxId:CurrMaxId,
             Title: this.state.gigTitle,
             username: localStorage.getItem("token"),
             Description: this.state.gigDescription,
             Pricing: this.state.gigPricing,
-            DeliveryTime: this.state.gigDeliveryTime
+            DeliveryTime: this.state.gigDeliveryTime,
+            gigSkill:this.state.gigSkill
         }
 
         axios.post('http://localhost:3001/PostProject', data)
@@ -59,11 +63,11 @@ export default class PostProject extends Component {
 
 
 
-  /*  handleChange(event) {
-        this.setState({
-            file: URL.createObjectURL(event.target.files[0])
-        })
-    }*/
+    /*  handleChange(event) {
+          this.setState({
+              file: URL.createObjectURL(event.target.files[0])
+          })
+      }*/
 
 
     onChangeInput(event) {
@@ -91,6 +95,11 @@ export default class PostProject extends Component {
 
                         <label for="gig-description" >Description :</label>
                         <textarea className="gig-description" name="gigDescription" rows="10" cols="10" onChange={(e) => this.onChangeInput(e)} />
+                        
+                        <label for="gig-skill">Skills :</label>
+                        <input className="Input-Style" type="text" name="gigSkill" onChange={(e) => this.onChangeInput(e)} />
+
+
                         <div className="small-detail">
 
                             <label for="gig-pricing" >Pricing :</label>
@@ -101,12 +110,10 @@ export default class PostProject extends Component {
 
                         </div>
 
-                     
-
                         <div className="submit-gig-detail">
                             <button className="submit-post-detail-button" onClick={this.Post.bind(this)}>Submit</button>
                         </div>
-                  
+
                     </div>
                 </div>
             </div>

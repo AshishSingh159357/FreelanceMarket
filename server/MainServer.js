@@ -49,8 +49,8 @@ app.use(session({
 
 //fetching data from registration url and then insert that data into database
 app.post('/registration',registration.insert);
-
 app.post('/login', login.ValidateUser);
+
 
 const upload=multer();
 app.post('/GigDetail',upload.single("file"),GigDetail.insert);
@@ -61,6 +61,8 @@ app.get('/GigAll',GigDetail.retriveAll);
 app.post('/PostProject',PostProject.insert);
 app.post('/Browse',PostProject.findall);
 app.get('/Browse/:id',PostProject.findOne);
+//app.get('/PostProject/MaxId',PostProject.findMaxId);
+
 
 app.post('/OfferList',OfferList.fetch);
 app.get('/OfferList/:id',OfferList.fOne);
