@@ -21,12 +21,12 @@ export default class PostProject extends Component {
 
 
         this.state = {
-
+         
             gigTitle: "",
             gigDescription: "",
             gigPricing: 0,
             gigDeliveryTime: 0,
-            gigSkill:"",
+            gigSkill: "",
             login
         }
 
@@ -35,17 +35,16 @@ export default class PostProject extends Component {
 
 
     Post() {
-        var CurrMaxId=0;
-        
-        
+      
+       
         var data = {
-            MaxId:CurrMaxId,
+          
             Title: this.state.gigTitle,
             username: localStorage.getItem("token"),
             Description: this.state.gigDescription,
             Pricing: this.state.gigPricing,
             DeliveryTime: this.state.gigDeliveryTime,
-            gigSkill:this.state.gigSkill
+            gigSkill: this.state.gigSkill
         }
 
         axios.post('http://localhost:3001/PostProject', data)
@@ -95,7 +94,7 @@ export default class PostProject extends Component {
 
                         <label for="gig-description" >Description :</label>
                         <textarea className="gig-description" name="gigDescription" rows="10" cols="10" onChange={(e) => this.onChangeInput(e)} />
-                        
+
                         <label for="gig-skill">Skills :</label>
                         <input className="Input-Style" type="text" name="gigSkill" onChange={(e) => this.onChangeInput(e)} />
 

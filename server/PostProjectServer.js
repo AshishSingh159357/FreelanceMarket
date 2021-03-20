@@ -21,14 +21,11 @@ conn.connect();
 exports.insert = function(req,response){
 
     var username=req.body.username;
-    /*var MaxId=req.body.MaxId;
     var skills=req.body.gigSkill;
-    var values=[]
     skills=skills.split(",");
-    for(var i=0;skills.length;i++)
-    {
-        values.push([MaxId,skills[0]]);
-    }*/
+    var values=[];
+   
+   
     //variable that should be added into user table 
 
 
@@ -42,28 +39,26 @@ exports.insert = function(req,response){
                 }
                 else {
                     console.log("Project Record Updated");
-                   
                 }
-
             })
+         
 
-          /*  let sql2="Insert into post_project_skill(Post_Project_id,Skill) values ?";
+           let sql2="select max(Project_id) as id from project_post";
 
     
-            conn.query(sql2,[values], (err, result) => {
+            conn.query(sql2,(err, result) => {
                 if (err) {
                     console.log("error is in query while inserting in postProject",err);
                 }
                 else {
-                    console.log("Project Record Updated");
-                   
+                    for(var i=0;i<skills.length;i++)
+                    {
+                        values.push([result[0].id,skills[i]]);
+                    }
+                   conn.query("Insert into post_project_skill(Post_Project_Id,Skill) values ?",[values])  ;           
                 }
-        
-            })*/
+            })    
 
-   
-
-    
 }
 
 
@@ -120,8 +115,8 @@ let id = req.params.id;
 
 
 
-/*
 
+/*
 
 exports.findMaxId=function(req,respond){
 

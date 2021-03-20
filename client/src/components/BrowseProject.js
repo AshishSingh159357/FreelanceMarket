@@ -19,16 +19,17 @@ export default class BrowseProject extends Component {
             login = "false"
         }
         this.state = {
-           
+
+            SearchValue:"",
             PostProject,
             login
         }
 
-       this.ProjectDetail= this.ProjectDetail.bind(this);
+    //   this.ProjectDetail= this.ProjectDetail.bind(this);
 
     }
 
-    ProjectDetail = (Project_name) => {
+   /* ProjectDetail = (Project_name) => {
        // alert(event.target.innerText);   
      // alert(n);
      
@@ -38,7 +39,7 @@ export default class BrowseProject extends Component {
      
     
     
-    }
+    }*/
 
 
     componentDidMount() {
@@ -51,6 +52,25 @@ export default class BrowseProject extends Component {
             }.bind(this));
     }
 
+
+    SearchProject(event){
+        var name=event.target.name;
+        var value=event.target.value;
+        this.setState({[name]:value});
+    }
+
+
+    SearchButton(){
+        var data={
+            SearchValue:this.state.SearchValue
+        };
+        axios.post('http://localhost:3001/SearchValue',data)
+        .then(function (response) {
+
+          this.setState({ PostProject: response.data });
+
+        }.bind(this));
+    }
 
 
     render() {
@@ -71,20 +91,19 @@ export default class BrowseProject extends Component {
 
                     <div className="Post-Projects-container">
                         <div className="Post-Project-first-row">
-                            <input type="text" className="search-project" placeholder="Search for Projects" />
-                            <input type="submit" className="Search-Project-Button" value="Search"></input>
+                            <input type="text" className="search-project" placeholder="Search for Projects" name="SearchValue" onChange={(e)=>this.SearchProject(e)}/>
+                            <button className="Search-Project-Button" onClick={this.SearchButton.bind(this)}>Search</button>
                         </div>
 
 
                         {PostProject.map(P => (
-                            <Link to={`/Browse/${P.Project_name}`}><div className="Post-Project" onClick={() => this.ProjectDetail(P.Project_name)}>
+                            <Link to={`/Browse/${P.Project_name}`}><div className="Post-Project">
                                 <p >{P.Project_name}</p>
                                 <p>${P.budget}</p>
                             </div>
                             </Link>
-                           
-
                         ))}
+
 
                     </div>
                 </div>
@@ -96,13 +115,3 @@ export default class BrowseProject extends Component {
 
 
 
-
-class rr extends Component {
-    render() {
-        return (
-            <div>
-                <h1>sadsa</h1>
-            </div>
-        )
-    }
-}

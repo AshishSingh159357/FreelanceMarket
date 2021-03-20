@@ -13,6 +13,7 @@ var GigDetail=require("./GigDetailServer");
 var PostProject=require("./PostProjectServer");
 var BidServer=require("./BidServer");
 var OfferList=require("./OfferServer");
+var SearchPostProject=require("./SearchPostProject");
 
 // declaration of host and port for server
 var host = 'localhost';
@@ -62,7 +63,7 @@ app.post('/PostProject',PostProject.insert);
 app.post('/Browse',PostProject.findall);
 app.get('/Browse/:id',PostProject.findOne);
 //app.get('/PostProject/MaxId',PostProject.findMaxId);
-
+app.post('/SearchValue',SearchPostProject.find);
 
 app.post('/OfferList',OfferList.fetch);
 app.get('/OfferList/:id',OfferList.fOne);
