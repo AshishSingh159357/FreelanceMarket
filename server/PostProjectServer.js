@@ -30,7 +30,7 @@ exports.insert = function(req,response){
 
 
  
-    let sql = "INSERT INTO project_post(Project_name,Project_Desc,Duration,budget,Username) VALUES ('"+ req.body.Title +"','"+ req.body.Description +"','"+ req.body.DeliveryTime +"','"+  req.body.Pricing +"','" + username + "')";
+    let sql = "INSERT INTO project_post(Project_name,Project_Desc,Duration,budget,Username,Project_Status) VALUES ('"+ req.body.Title +"','"+ req.body.Description +"','"+ req.body.DeliveryTime +"','"+  req.body.Pricing +"','" + username + "','"+ 0 +"')";
   
   
             conn.query(sql, (err, result) => {
@@ -70,7 +70,7 @@ exports.insert = function(req,response){
 
 exports.findall=function(req,respond){
 
-    sql="SELECT * FROM project_post";
+    sql="SELECT * FROM project_post where Project_Status='"+0+"'";
 
     conn.query(sql,(err,result)=>{
         if(err)

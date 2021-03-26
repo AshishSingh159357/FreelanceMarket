@@ -17,7 +17,7 @@ export default class Navbar extends Component {
                         Logo
                     </section>
                     <section class="section-2">
-                        <input type="text" class="search-freelancer" placeholder="search freelancer" />
+                        <input type="text" class="search-freelancer" placeholder="Search Freelancer" />
                         <button class="search-freelancer-button">Search</button>
                     </section>
                     <section class="section-3" >
@@ -33,6 +33,8 @@ export default class Navbar extends Component {
                             <button class="dropbtn">Me</button>
                             <div class="dropdown-content">
                                 <a href="/OfferList">Offer</a>
+                                <a href="/ActiveBuyerProject">Active</a>
+                                
                                 <a href="/" onClick={this.logout.bind(this)}>Log out</a>
                             </div>
                         </div>

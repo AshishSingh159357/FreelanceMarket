@@ -14,6 +14,8 @@ var PostProject=require("./PostProjectServer");
 var BidServer=require("./BidServer");
 var OfferList=require("./OfferServer");
 var SearchPostProject=require("./SearchPostProject");
+var ActiveProject=require("./ActiveProjectServer");
+
 
 // declaration of host and port for server
 var host = 'localhost';
@@ -67,7 +69,8 @@ app.post('/SearchValue',SearchPostProject.find);
 
 app.post('/OfferList',OfferList.fetch);
 app.get('/OfferList/:id',OfferList.fOne);
-
+app.post('/ActiveProject',ActiveProject.update);
+app.get('/ActiveProjectList',ActiveProject.fetch);
 
 app.post('/Bid',BidServer.insert);
 

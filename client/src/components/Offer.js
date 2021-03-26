@@ -3,6 +3,7 @@ import Navbar from './BuyerNavbar';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './componentCss/OfferCss.css';
+import { Link } from 'react-router-dom';
 
 
 export default function Offer({ match }) {
@@ -24,6 +25,23 @@ export default function Offer({ match }) {
 
 
 
+    function Accept(){
+       var data={
+            Project_id:item.Post_Project_id
+        }
+
+        axios.post('http://localhost:3001/ActiveProject',data).then(res => {
+            // alert(res.data);
+            // console.log(res);
+            if(res.data=="1"){
+                alert("Accepted");
+            }
+            else{
+                alert("error while Accepting");
+            }
+        });
+
+    }
 
 
 
@@ -45,7 +63,7 @@ export default function Offer({ match }) {
                     <p>Budget : ${item.Amount}</p>
                 </div>
 
-               <button className="Accept">Accept</button>
+              <Link to={`/ActiveBuyerProject/${item.Post_Project_id}`}><button className="Accept" onClick={Accept}>Accept</button></Link>
             </div>
 
 

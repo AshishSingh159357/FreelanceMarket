@@ -15,7 +15,8 @@ import BrowseProject from './components/BrowseProject';
 import PostProjectDetail from './components/PostProjectDetail';
 import Offer from './components/Offer';
 import OfferList from './components/OfferList'
-
+import ActiveProject from './components/ActiveProject';
+import ActiveProjectList from './components/AcitveProjectList';
 
 function App() {
   var a = localStorage.getItem("Post_Project_name");
@@ -25,6 +26,14 @@ function App() {
       <div>
         <Switch>
 
+          <Route path="/ActiveBuyerProject" exact render={
+            () => {
+              return (<ActiveProjectList />)
+            }
+          } />
+
+          <Route path="/ActiveBuyerProject/:id" component={ActiveProject} />
+
 
 
           <Route path="/OfferList" exact render={
@@ -33,7 +42,11 @@ function App() {
             }
           } />
 
-          <Route path="/OfferList/:id"  component={Offer} />
+
+          <Route path="/OfferList/:id" component={Offer} />
+
+
+
 
 
           <Route path="/Browse" exact render={
