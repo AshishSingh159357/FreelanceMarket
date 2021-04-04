@@ -30,6 +30,7 @@
     
 }
 .section-2 button{
+  padding: 5px;
    border-style: none;
    outline: none;
    background-color:transparent;

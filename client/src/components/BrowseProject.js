@@ -20,26 +20,26 @@ export default class BrowseProject extends Component {
         }
         this.state = {
 
-            SearchValue:"",
+            SearchValue: "",
             PostProject,
             login
         }
 
-    //   this.ProjectDetail= this.ProjectDetail.bind(this);
+        //   this.ProjectDetail= this.ProjectDetail.bind(this);
 
     }
 
-   /* ProjectDetail = (Project_name) => {
-       // alert(event.target.innerText);   
-     // alert(n);
+    /* ProjectDetail = (Project_name) => {
+        // alert(event.target.innerText);   
+      // alert(n);
+      
+      //<Redirect to="/dashboard"/>
+      //alert(Project_name);
+       //localStorage.setItem("Post_Project_name",Project_name);
+      
      
-     //<Redirect to="/dashboard"/>
-     //alert(Project_name);
-      //localStorage.setItem("Post_Project_name",Project_name);
      
-    
-    
-    }*/
+     }*/
 
 
     componentDidMount() {
@@ -53,28 +53,28 @@ export default class BrowseProject extends Component {
     }
 
 
-    SearchProject(event){
-        var name=event.target.name;
-        var value=event.target.value;
-        this.setState({[name]:value});
+    SearchProject(event) {
+        var name = event.target.name;
+        var value = event.target.value;
+        this.setState({ [name]: value });
     }
 
 
-    SearchButton(){
-        var data={
-            SearchValue:this.state.SearchValue
+    SearchButton() {
+        var data = {
+            SearchValue: this.state.SearchValue
         };
-        axios.post('http://localhost:3001/SearchValue',data)
-        .then(function (response) {
+        axios.post('http://localhost:3001/SearchValue', data)
+            .then(function (response) {
 
-          this.setState({ PostProject: response.data });
+                this.setState({ PostProject: response.data });
 
-        }.bind(this));
+            }.bind(this));
     }
 
 
     render() {
-      
+
         var { PostProject } = this.state;
 
         return (
@@ -91,18 +91,29 @@ export default class BrowseProject extends Component {
 
                     <div className="Post-Projects-container">
                         <div className="Post-Project-first-row">
-                            <input type="text" className="search-project" placeholder="Search for Projects" name="SearchValue" onChange={(e)=>this.SearchProject(e)}/>
+                            <input type="text" className="search-project" placeholder="Your Skill" name="SearchValue" onChange={(e) => this.SearchProject(e)} />
                             <button className="Search-Project-Button" onClick={this.SearchButton.bind(this)}>Search</button>
                         </div>
 
 
                         {PostProject.map(P => (
-                            <Link to={`/Browse/${P.Project_name}`}><div className="Post-Project">
-                                <p >{P.Project_name}</p>
-                                <p>${P.budget}</p>
-                            </div>
-                            </Link>
+                           
+                                <div className="Post-Project">
+                                     <a  href={`/Browse/${P.Project_name}`}>
+                                    <div className="Post-Project-section-1">
+                                        <h6>{P.Project_name}</h6>
+                                        <p>Pricing : ${P.budget}</p>
+                                    </div> 
+                                    </a>
+                                    <div className="Post-Project-section-2">
+                        <p>{P.Project_Desc}</p>
+                                    </div>
+
+                                </div>
+                            
+                           
                         ))}
+
 
 
                     </div>

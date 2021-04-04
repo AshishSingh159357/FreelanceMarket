@@ -15,6 +15,8 @@ var BidServer=require("./BidServer");
 var OfferList=require("./OfferServer");
 var SearchPostProject=require("./SearchPostProject");
 var ActiveProject=require("./ActiveProjectServer");
+var dashboard=require("./DashboardServer");
+
 
 
 // declaration of host and port for server
@@ -32,23 +34,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 app.use(cors());
-/*app.use(cors({
-   origin:["http://localhost:3000"],
-   methods:["GET","POST"],
-   credentials:true
-}));
-app.use(cookieParser())
-app.use(session({
-   key:"userId",
-   secret:"subscribe",
-   resave:false,
-   saveUninitialized:false,
-   cookie:{
-      expires:60 * 60 *24,
-   },
-}));
-
-*/
 
 //fetching data from registration url and then insert that data into database
 app.post('/registration',registration.insert);
@@ -70,9 +55,14 @@ app.post('/SearchValue',SearchPostProject.find);
 app.post('/OfferList',OfferList.fetch);
 app.get('/OfferList/:id',OfferList.fOne);
 app.post('/ActiveProject',ActiveProject.update);
-app.get('/ActiveProjectList',ActiveProject.fetch);
+app.post('/ActiveProjectList',ActiveProject.fetch);
 
 app.post('/Bid',BidServer.insert);
+
+
+app.post('/dashboard',dashboard.findall)
+
+
 
 
 // this is the server running code

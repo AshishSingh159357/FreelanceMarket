@@ -31,7 +31,7 @@ export default class ActiveProjectList extends Component {
 
     componentDidMount() {
 
-        axios.get('http://localhost:3001/ActiveProjectList',{user:localStorage.getItem("token")})
+        axios.post('http://localhost:3001/ActiveProjectList',{user:localStorage.getItem("token")})
             .then(function (response) {
 
                 this.setState({ OfferList: response.data });

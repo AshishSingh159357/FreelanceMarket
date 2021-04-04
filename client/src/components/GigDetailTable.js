@@ -22,17 +22,7 @@ export default class GigDetailTable extends Component {
             GigDetail,
             login
         }
-       /* GigDetail.push({
-            GigTitle: 'web Development',
-            Impression: 0,
-            Clicks: 0
-        });
-        GigDetail.push({
-            GigTitle: 'UI and UX', Impression: 0, Clicks: 0
-        });
-
       
-      */
 
     }
 

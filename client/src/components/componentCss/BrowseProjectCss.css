@@ -33,12 +33,23 @@ box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
     padding: 20px;
 
 }
+.Post-Project-first-row input{
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    
+}
+
+
+
 .Post-Project-first-row .Search-Project-Button{
     outline:none;
     margin-right: 20px;
     /*background-color:rgb(87, 152, 236);*/
     background-color: rgb(18, 142, 214);
-    border-radius:5px;
+   
+    border-radius: 0px 5px 5px 0px;
     border-style: none;
     padding:4px 10px 4px 10px;
     cursor: pointer;
@@ -47,6 +58,7 @@ box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 
 .Post-Project-first-row .Search-Project-Button:hover{
     background-color:rgba(13, 100, 150, 1);
+   
 }
 
 .Post-Project-first-row .Search-Project-Button:active{
@@ -55,7 +67,7 @@ box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 .search-project{
     outline: none;
     height: 5%;
-    width: 50%;
+    width: 100%;
 }
 
 
@@ -65,15 +77,29 @@ box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 
 
 
-
-.Post-Project{
-   
+.Post-Project-section-1{
     display: flex;
     flex-direction: row;
     justify-content:space-between;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 40px;
+    
+}
+.Post-Project-section-2{
+    padding-left: 20px;
+    padding-right: 20px; 
+    color: grey;
+    width: 90%;
+    max-height: 10vh;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.Post-Project{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
     border: 1px solid grey;
     border-top-style: none;
     border-left-style: none;
@@ -81,13 +107,9 @@ box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 .Post-Project:hover{
     cursor: pointer;
-    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-
-    
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-decoration: none; 
 }
-
-
-
 
 
 
@@ -100,3 +122,11 @@ box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
     flex-basis: 200px;
 
 }
+
+
+
+
+
+
+
+

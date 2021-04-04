@@ -29,14 +29,16 @@ exports.insert = function (req, respond) {
     var username=req.body.username;
     console.log(req.body)
     console.log("file===",req.body.file);
-    //variable that should be added into user table 
+   
+    var tags=req.body.gigTag.split(",");
+    values=[];
+
 
 
     // Inserting data into database in user table
    // let values = [localStorage.getItem("token"), req.body.gigTitle, password, fullname, mobile];
     let sql = "INSERT INTO gig(UserName,GigTitle,GigDescription,Pricing,GigStatus,DeliveryTime,Revision,Requirement,Impression,Clicks) VALUES ('" + username + "','" + req.body.gigTitle + "','" + req.body.gigDescription + "','" + req.body.gigPricing + "','" + GigStatus + "','" + req.body.gigDeliveryTime + "','" + req.body.gigRevision + "','" + req.body.gigRequirement + "','"+ Impression +"','"+ Clicks +"')";
-   // let sql = "INSERT INTO gig(GigId,UserName,GigTitle,GigDescription,Pricing,GigStatus,DeliveryTime,Revision,Requirement,Impression,Clicks,DateTime) VALUES (12,'qwaszx','ds')";
-  
+   
             conn.query(sql, (err, result) => {
                 if (err) {
                     console.log("error is in query",err);
@@ -45,10 +47,27 @@ exports.insert = function (req, respond) {
                 else {
                     console.log("Gig Record Updated");
                     respond.send("1");
-
+                    
                 }
             })
 
+
+            
+           let sql2="select max(GigId) as id from gig";
+
+    
+           conn.query(sql2,(err, result) => {
+               if (err) {
+                   console.log("error is in query while inserting in postProject",err);
+               }
+               else {
+                   for(var i=0;i<tags.length;i++)
+                   {
+                       values.push([result[0].id,tags[i]]);
+                   }
+                  conn.query("Insert into tags(Gig_id,Tags) values ?",[values])  ;           
+               }
+           })    
 }
 
 
@@ -65,7 +84,7 @@ exports.retrive = function(req,respond){
         }
         else {
             console.log("retrive all specific data for Gig")
-            console.log(result);
+           
             respond.send(result);
         }
 
@@ -83,7 +102,7 @@ exports.retriveAll = function(req,respond){
         }
         else {
             console.log("retrive all data for Gig")
-            console.log(result);
+           
             respond.send(result);
         }
 

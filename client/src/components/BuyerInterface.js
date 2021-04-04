@@ -59,7 +59,7 @@ export default class BuyerInterface extends Component {
                     {gigs.map(Gig=>(
                          <div class="freelancer-gig">
                          <div>
-                             <img src="website.jpg" />
+                             <img src='images/website.jpg'/>
                          </div>
                          <small>{Gig.UserName}</small>
                          <strong>{Gig.GigTitle}</strong>

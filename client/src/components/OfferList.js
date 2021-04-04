@@ -24,28 +24,17 @@ export default class OfferList extends Component {
             login
         }
 
-       this.ProjectDetail= this.ProjectDetail.bind(this);
+    
 
     }
 
-    ProjectDetail = (Project_name) => {
-       // alert(event.target.innerText);   
-     // alert(n);
-     
-     //<Redirect to="/dashboard"/>
-     //alert(Project_name);
-      //localStorage.setItem("Post_Project_name",Project_name);
-     
-    
-    
-    }
-
+  
 
     componentDidMount() {
 
         axios.post('http://localhost:3001/OfferList',{user:localStorage.getItem("token")})
             .then(function (response) {
-
+                //alert(response.data[1].Project_name)
                 this.setState({ OfferList: response.data });
 
             }.bind(this));
@@ -76,7 +65,7 @@ export default class OfferList extends Component {
 
 
                         {OfferList.map(O => (
-                            <Link to={`/OfferList/${O.Bid_Username}`}><div className="Post-Project" >
+                            <Link to={`/OfferList/${O.Project_id}`}><div className="Post-Project" >
                                 <p >{O.Bid_Username}</p>
                                 <p>${O.Amount}</p>
                             </div>

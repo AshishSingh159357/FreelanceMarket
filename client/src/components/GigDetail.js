@@ -56,6 +56,7 @@ export default class GigDetail extends Component {
             gigRevision: this.state.gigRevision,
             gigSkill: this.state.gigSkill,
             gigRequirement: this.state.gigRequirement,
+            gigTag:this.state.gigTag
         }
 
         axios.post('http://localhost:3001/GigDetail', data)
@@ -124,8 +125,11 @@ export default class GigDetail extends Component {
                             <input className="Input-Style" type="text" name="gigRevision" onChange={(e) => this.onChangeInput(e)} />
                         </div>
 
-                        <label for="gig-skill" >Skill :</label>
+                        <label for="gig-skill" >Skills :</label>
                         <input className="Input-Style" type="text" name="gigSkill" onChange={(e) => this.onChangeInput(e)} />
+
+                        <label for="gig-tag" >Tags :</label>
+                        <input className="Input-Style" type="text" name="gigTag" onChange={(e) => this.onChangeInput(e)} />
 
                         <label for="gig-requirement">Requirement :</label>
                         <textarea className="gig-requirement" name="gigRequirement" rows="5" cols="10" onChange={(e) => this.onChangeInput(e)} />

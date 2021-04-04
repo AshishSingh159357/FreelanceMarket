@@ -11,8 +11,6 @@ export default function Offer({ match }) {
     const [item, setItem] = useState({});
    
 
-
-
     useEffect(() => {
 
         axios.get(`http://localhost:3001/OfferList/${match.params.id}`).then(res => {

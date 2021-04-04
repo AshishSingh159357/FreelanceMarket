@@ -103,37 +103,16 @@ let id = req.params.id;
         }
         else{
             respond.send(result[0]);
-            console.log(result[0]);
-        }
-    })
-
-}
-
-
-
-
-
-
-
-
-/*
-
-exports.findMaxId=function(req,respond){
-
-    sql="SELECT max(Project_id) as id FROM project_post";
-
-    conn.query(sql,(err,result)=>{
-        if(err)
-        {
-            console.log("err while finding in project_post table");
-        }
-        else{
-          
-            respond.send(result);
             
         }
-
     })
 
 }
-*/
+
+
+
+
+
+
+
+

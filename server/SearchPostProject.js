@@ -33,7 +33,7 @@ exports.find=function(req,respond){
                     console.log(err);
                 }
                 else{
-                    console.log(result);
+                  
                     respond.send(result);
                 }
             });
