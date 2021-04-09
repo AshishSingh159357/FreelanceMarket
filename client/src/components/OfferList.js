@@ -13,26 +13,22 @@ export default class OfferList extends Component {
         var login = "true";
         const OfferList = [];
 
-
         if (token == null) {
 
             login = "false"
         }
         this.state = {
-           
+
             OfferList,
             login
         }
-
-    
-
     }
 
-  
+
 
     componentDidMount() {
 
-        axios.post('http://localhost:3001/OfferList',{user:localStorage.getItem("token")})
+        axios.post('http://localhost:3001/OfferList', { user: localStorage.getItem("token") })
             .then(function (response) {
                 //alert(response.data[1].Project_name)
                 this.setState({ OfferList: response.data });
@@ -43,39 +39,53 @@ export default class OfferList extends Component {
 
 
     render() {
-      
+
         var { OfferList } = this.state;
 
         return (
             <div>
                 <Navbar />
-                <div className="Post-Project-Container">
-                    <div className="filter">
-                        <p>Web application</p>
-                        <p>100$</p>
-                    </div>
+                <div class="table-container">
+
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <td><h3>Buyer Requests</h3></td>
+                                <td></td>
+                                <td></td>
+                             
+                                <td class="last-column"></td>
+                            </tr>
+                        </thead>
+                        <thead class="table-heading">
+                            <tr>
+                                <th class="column-1">Project Title</th>
+                                <th>Freelancer</th>
+                                <th>Bid_Amount</th>
+                                <th>Delivery Time</th>
+                              
+                            </tr>
+                        </thead>
 
 
-
-
-                    <div className="Post-Projects-container">
-                        <div className="Post-Project-first-row">
-                          <h3> Buyer Offers </h3>
-                        </div>
-
-
-                        {OfferList.map(O => (
-                            <Link to={`/OfferList/${O.Project_id}`}><div className="Post-Project" >
-                                <p >{O.Bid_Username}</p>
-                                <p>${O.Amount}</p>
-                            </div>
-                            </Link>
-                           
+                        {OfferList.map(o => (
+                            <tr class="row-content">
+                                <Link to={`/OfferList/${o.Project_id}`}>
+                                    <td class="column-1-content">
+                                        {o.Project_name}
+                                    </td>
+                                </Link>
+                                <td>{o.Bid_Username}</td>
+                                <td>${o.Amount}</td>
+                                <td>{o.Delivery_Time} days</td>
+                               
+                            </tr>
 
                         ))}
 
-                    </div>
+                    </table>
                 </div>
+
             </div>
         )
     }

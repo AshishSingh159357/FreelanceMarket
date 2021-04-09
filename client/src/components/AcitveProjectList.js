@@ -50,34 +50,47 @@ export default class ActiveProjectList extends Component {
 
         return (
             <div>
-                <Navbar />
-                <div className="Post-Project-Container">
-                    <div className="filter">
-                        <p>Web application</p>
-                        <p>100$</p>
-                    </div>
+            <Navbar/>
+            <div class="table-container">
+
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <td><h3>Active Project</h3></td>
+                            <td></td>
+                            <td></td>
+                           
+                            <td class="last-column"></td>
+                        </tr>
+                    </thead>
+                    <thead class="table-heading">
+                        <tr>
+                            <th class="column-1">Project Title</th>
+                            <th>Duration</th>
+                            <th>Amount</th>
+                            <th>Orders</th>
+                            
+                        </tr>
+                    </thead>
 
 
+                    { OfferList.map(o=>(
+                    <tr class="row-content">
+                        <Link to={`/ActiveBuyerProject/${o.Project_id}`}>   <td class="column-1-content">
+                        {o.Project_name}
+                        </td></Link>
+                        <td>{o.Duration} days</td>
+                        <td>${o.budget}</td>
+                        <td>5</td>
+                       
+                    </tr>
+                    
+                    ))}
 
-
-                    <div className="Post-Projects-container">
-                        <div className="Post-Project-first-row">
-                          <h3> Active Project </h3>
-                        </div>
-
-
-                        {OfferList.map(O => (
-                            <Link to={`/ActiveBuyerProject/${O.Project_id}`}><div className="Post-Project" >
-                                <p >{O.Project_name}</p>
-                               
-                            <p>${O.budget}</p>
-                            </div>
-                            </Link>
-                        ))}
-
-                    </div>
-                </div>
+                </table>
             </div>
+
+        </div>
         )
     }
 }

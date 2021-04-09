@@ -43,8 +43,7 @@ export default class BrowseProject extends Component {
 
 
     componentDidMount() {
-
-        axios.post('http://localhost:3001/Browse')
+        axios.post('http://localhost:3001/Browse',{user:localStorage.getItem("token")})
             .then(function (response) {
 
                 this.setState({ PostProject: response.data });
@@ -97,21 +96,23 @@ export default class BrowseProject extends Component {
 
 
                         {PostProject.map(P => (
-                           
-                                <div className="Post-Project">
-                                     <a  href={`/Browse/${P.Project_name}`}>
+
+                            <div className="Post-Project">
+                                <a href={`/Browse/${P.Project_name}`}>
                                     <div className="Post-Project-section-1">
                                         <h6>{P.Project_name}</h6>
-                                        <p>Pricing : ${P.budget}</p>
-                                    </div> 
-                                    </a>
-                                    <div className="Post-Project-section-2">
-                        <p>{P.Project_Desc}</p>
+                                        <div>
+                                            <p>Pricing : ${P.budget}</p>
+                                            <p>Duration : ${P.Duration} days</p>
+                                        </div>
                                     </div>
-
+                                </a>
+                                <div className="Post-Project-section-2">
+                                    <p>{P.Project_Desc}</p>
                                 </div>
-                            
-                           
+                            </div>
+
+
                         ))}
 
 

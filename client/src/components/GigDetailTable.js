@@ -23,12 +23,21 @@ export default class GigDetailTable extends Component {
             login
         }
       
+this.delete=this.delete.bind(this)
+    }
+
+
+    delete(id){
+
+        axios.post("http://localhost:3001/GigDelete",{id:id});
+        this.componentDidMount();
 
     }
 
-    componentDidMount() {
 
-      
+
+
+    componentDidMount() {
 
       axios.post('http://localhost:3001/Gig',{username:localStorage.getItem("token")})
          .then(function (response) {
@@ -84,7 +93,7 @@ export default class GigDetailTable extends Component {
                             <td>{GigDetails.Clicks}</td>
                             <td>{GigDetails.Impression}</td>
                             <td>5</td>
-                            <td class="last-column">fdsfds</td>
+                            <td class="last-column"><input classname="delete-gig" type="submit" value="Delete" onClick={this.delete(GigDetails.GigId)}/></td>
                         </tr>
 
                         ))}

@@ -1,12 +1,37 @@
 import React from 'react';
 import './componentCss/ActiveProjectCss.css';
 import Navbar from './BuyerNavbar';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-export default function ActiveProject() {
 
+export default function ActiveProject({match}) {
+
+    const [state, setstate] = useState({});
+   
+    
     function star(v) {
         alert(v)
     }
+
+   function review()
+    {
+       // confirm("Are you sure!");
+        axios.post(`http://localhost:3001/Review/${match.params.id}`,state);
+    }
+
+    function Comment(event)
+    {
+       setstate({[event.target.name]:event.target.value});
+    }
+
+    function Cancel()
+    {
+        axios.post(`http://localhost:3001/Cancel/${match.params.id}`);
+    }
+
+
 
 
     return (
@@ -38,8 +63,9 @@ export default function ActiveProject() {
 
                 <div className="Comment">
                     <p>Comment</p>
-                    <textarea cols='102' rows='10' name='comment'></textarea>
-                    <button className="Done">Done</button>
+                    <textarea cols='104' rows='5' name='comment' onChange={e=>Comment(e)}></textarea>
+                    <Link to="/ActiveBuyerProject"><button className="Done" onClick={review}>Done</button></Link>
+                    <Link to="/ActiveBuyerProject"><button className="Cancel" onClick={Cancel}>Cancel</button></Link>
                 </div>
                
             </div>

@@ -16,7 +16,9 @@ var OfferList=require("./OfferServer");
 var SearchPostProject=require("./SearchPostProject");
 var ActiveProject=require("./ActiveProjectServer");
 var dashboard=require("./DashboardServer");
-
+var SearchGigServer=require("./SearchGigServer");
+var review=require("./Review");
+var UserReview=require("./UserReview");
 
 
 // declaration of host and port for server
@@ -47,6 +49,9 @@ app.post('/Gig',GigDetail.retrive);
 app.get('/GigAll',GigDetail.retriveAll);
 
 app.post('/PostProject',PostProject.insert);
+
+
+
 app.post('/Browse',PostProject.findall);
 app.get('/Browse/:id',PostProject.findOne);
 //app.get('/PostProject/MaxId',PostProject.findMaxId);
@@ -61,9 +66,13 @@ app.post('/Bid',BidServer.insert);
 
 
 app.post('/dashboard',dashboard.findall)
+app.post('/SearchGig',SearchGigServer.find)
 
 
-
+app.post("/Review/:id",review.insert);
+app.post("/Cancel/:id",review.cancel);
+app.post("/UserReviews",UserReview.findall);
+app.post("/GigDelete",GigDetail.delete);
 
 // this is the server running code
 var server = app.listen(3001, function () {

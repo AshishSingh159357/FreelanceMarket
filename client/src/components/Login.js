@@ -30,14 +30,6 @@ export default class Login extends Component {
 
 
 
-   /*callAPI() {
-      fetch("http://localhost:3001/login")
-          .then(res => res.text())
-          .then(res => this.setState({ login:"kkk" }));
-   }
-   */
-
-
    validate() {
 
       var Data = {
@@ -83,8 +75,8 @@ export default class Login extends Component {
       var name = event.target.name;
       var value = event.target.value;
       this.setState({ [name]: value });
-      console.log("---name---", name);
-      console.log("---value---", value);
+      this.setState({UsernameError:""});
+      this.setState({PasswordError:""})
    }
 
    render() {

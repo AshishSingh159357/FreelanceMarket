@@ -7,11 +7,12 @@ import { BrowserRouter as Router, Switch, Redirect, Link } from 'react-router-do
 
 
 export default class BuyerInterface extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        const gigs=[];
+        const gigs = [];
         const token = localStorage.getItem("token");
         var login = "true";
+        //var data=[]
 
 
         if (token == null) {
@@ -20,26 +21,32 @@ export default class BuyerInterface extends Component {
             login = "false"
         }
 
-        this.state={
+        this.state = {
+            // data,
             gigs,
             login
         }
     }
 
+    handleCallback = (childData) => {
+        this.setState({ gigs: childData })
+    }
+
+
 
     componentDidMount() {
-       
+
         axios.get('http://localhost:3001/GigAll')
-           .then(function (response) {
-              //alert(response.data[0].GigTitle);
-           
-              
-              this.setState({gigs:response.data});
-  
-           }.bind(this));
-  
-         // alert(this.state.GigDetail);
-      }
+            .then(function (response) {
+                //alert(response.data[0].GigTitle);
+
+
+                this.setState({ gigs: response.data });
+
+            }.bind(this));
+
+        // alert(this.state.GigDetail);
+    }
 
 
 
@@ -49,23 +56,28 @@ export default class BuyerInterface extends Component {
             return <Redirect to="/" />
         }
 
-        var { gigs }=this.state;
+        var { gigs } = this.state;
+        const { data } = this.state;
 
         return (
             <div>
-               <Navbar/>
+                <Navbar parentCallback={this.handleCallback} />
                 <div class="freelnacer-gigs-container">
 
-                    {gigs.map(Gig=>(
-                         <div class="freelancer-gig">
-                         <div>
-                             <img src='images/website.jpg'/>
-                         </div>
-                         <small>{Gig.UserName}</small>
-                         <strong>{Gig.GigTitle}</strong>
-                         <b>4.5</b>
-                         <b>{Gig.Pricing}</b>
-                     </div>
+                    {gigs.map(Gig => (
+                        <div class="freelancer-gig">
+
+                            <div>
+                                <img src='images/website.jpg' />
+                            </div>
+
+                            <div className="gig-detail">
+                                <p>{Gig.UserName}</p>
+                                <h6>{Gig.GigTitle}</h6>
+                                <h6>4.5</h6>
+                                <h6>${Gig.Pricing}</h6>
+                            </div>
+                        </div>
                     ))}
 
                 </div>

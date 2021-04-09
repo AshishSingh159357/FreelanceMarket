@@ -109,3 +109,18 @@ exports.retriveAll = function(req,respond){
     })
 }
 
+
+
+
+exports.delete=function(req,respond){
+    console.log(req.body.id)
+    sql="delete from gig where GigId='"+req.body.id+"' ";
+    conn.query(sql,(err,result)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log("gig deleted")
+        }
+    })
+}

@@ -9,9 +9,46 @@
    
 }
 .DashboardContainer{
+  display: flex;
+  flex-direction: row;
    background-color: whitesmoke;
    height: 100vh;
 }
+
+
+
+.dashboard-section-1{
+    display: flex;
+    flex-direction: row;
+}
+.dashboard-section-1 div{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 350px;
+    height: 120px;
+    margin: 10px;
+    margin-left: 30px;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+.dashboard-section-1 div p{
+    font-size: 50px;
+    margin-left: 45%;
+    color: rgb(66, 175, 66);
+}
+.dashboard-section-1 div h6{
+    margin-left: 4%;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
 
 .heading {
     width: 90%;
@@ -25,15 +62,68 @@
 }
 
 .Active-project-list {
-    width: 50%;
+    width: 99%;
     background-color: white;
     padding-left: 15px;
     margin-top: 15px;
     border-radius: 5px;
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
+.Active-project-list div{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+.UserInformation{
+    width: 400px;
+   min-height: 50vh;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+
+}
+
+
+.UserInformation{
+
+flex-direction: column;
+
+}
+.User{
+   
+    width: 50%;
+    padding: 10px;
+
+}
+.User h6{
+    font-size: 20px;
+}
+.Reviews{
+    border-top: 1px solid grey;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.Reviews:hover{
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+
+
+
 
 .Active-project-list ul {
+    
     display: flex;
     font-size: 18px;
     flex-direction: row;
@@ -43,6 +133,9 @@
     height: 40px;
     align-items: center;
 
+}
+.Active-project-list ul li{
+    font-size: 15px;
 }
 
 .Project-Title {

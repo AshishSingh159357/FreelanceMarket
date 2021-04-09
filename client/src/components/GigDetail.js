@@ -142,7 +142,7 @@ export default class GigDetail extends Component {
 
                         <div style={{color:"red"}}>{this.state.error}</div>
                         <div className="submit-gig-detail">
-                            <button className="submit-gig-detail-button" onClick={this.validateForm.bind(this)}>Submit</button>
+                        <button className="submit-gig-detail-button" onClick={this.validateForm.bind(this)}>Submit</button>
                         </div>
 
                     </div>

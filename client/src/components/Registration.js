@@ -15,20 +15,11 @@ export default class Registration extends Component {
             confirm: "",
             Error: ""
         };
+        
 
         this.onChangeInput = this.onChangeInput.bind(this);
     }
 
-    /* callAPI() {
-       fetch("http://localhost:3001/kk")
-           .then(res => res.text())
-           .then(res => this.setState({ apiResponse: res }));
-   }
-   
-   componentWillMount() { 
-       this.callAPI();
-   }
-   */
 
 
     validateForm() {
@@ -85,13 +76,14 @@ export default class Registration extends Component {
         }
     }
 
+
+
     onChangeInput(event) {
 
         const name = event.target.name;
         const value = event.target.value;
         this.setState({ [name]: value })
         this.setState({Error:""});
-
     }
 
 

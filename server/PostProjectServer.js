@@ -70,7 +70,7 @@ exports.insert = function(req,response){
 
 exports.findall=function(req,respond){
 
-    sql="SELECT * FROM project_post where Project_Status='"+0+"'";
+    sql="SELECT * FROM project_post where not Username='"+req.body.user+"' and Project_Status='"+0+"'  order by Project_id desc";
 
     conn.query(sql,(err,result)=>{
         if(err)
