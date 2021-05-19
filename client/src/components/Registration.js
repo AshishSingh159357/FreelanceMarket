@@ -100,8 +100,8 @@ export default class Registration extends Component {
                             <input className="email-input" type="text" name="email" placeholder="Email" onChange={(e) => this.onChangeInput(e)} />
                             <input className="username-input" type="text" name="username" placeholder="Username" onChange={(e) => this.onChangeInput(e)} />
                             <input className="mobile-input" type="text" name="mobile" placeholder="Mobile" onChange={(e) => this.onChangeInput(e)} />
-                            <input className="password-input" type="text" name="password" placeholder="Password" onChange={(e) => this.onChangeInput(e)} />
-                            <input className="confirm-password-input" type="text" name="confirm"
+                            <input className="password-input" type="password" name="password" placeholder="Password" onChange={(e) => this.onChangeInput(e)} />
+                            <input className="confirm-password-input" type="password" name="confirm"
                                 placeholder="Confirm Password" onChange={(e) => this.onChangeInput(e)} />
                         </form>
                         <div style={{color:"red"}}>

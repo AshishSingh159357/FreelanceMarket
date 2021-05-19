@@ -71,7 +71,7 @@ export default class BuyerInterface extends Component {
                                 <img src='images/website.jpg' />
                             </div>
 
-                            <div className="gig-detail">
+                            <div className="gig-content">
                                 <p>{Gig.UserName}</p>
                                 <h6>{Gig.GigTitle}</h6>
                                 <h6>4.5</h6>

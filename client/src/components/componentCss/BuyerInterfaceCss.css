@@ -15,14 +15,15 @@
     width: 100%;
     
 }
-.gig-detail{
+.gig-content{
     display: flex;
     flex-direction: column;
     padding-top: 30px;
+    margin-left: 5%;
 }
-.gig-detail small{
+.gig-content small{
    min-width:1px ;
-    background-color: grey;
+   background-color: grey;
 }
 
 .freelancer-gig {

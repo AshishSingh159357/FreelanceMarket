@@ -114,6 +114,33 @@
 
 
 
+.Pay{
+    float: left;
+    margin-top: 10px;
+    outline:none;
+    margin-right: 20px;
+    /*background-color:rgb(87, 152, 236);*/
+    background-color: red;
+    border-radius:5px;
+    border-style: none;
+    padding:7px 20px 7px 20px;
+    cursor: pointer;
+    color:whitesmoke;
+    outline: none;
+    background-color: green;
+}
+
+
+
+.Pay:hover{
+    background-color:rgb(60, 165, 60);
+}
+
+.Pay:active{
+    background-color:rgb(19, 97, 19);
+}
+
+
 
 
 

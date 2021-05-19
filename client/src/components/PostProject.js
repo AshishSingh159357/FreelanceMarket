@@ -28,6 +28,7 @@ export default class PostProject extends Component {
             gigPricing: 0,
             gigDeliveryTime: 0,
             gigSkill: "",
+            Error: "",
             login
         }
 
@@ -47,6 +48,13 @@ export default class PostProject extends Component {
             DeliveryTime: this.state.gigDeliveryTime,
             gigSkill: this.state.gigSkill
         }
+
+        if (!this.state.gigTitle || !this.state.gigDescription || !this.state.gigPricing || !this.state.gigDeliveryTime || !this.state.gigSkill) {
+
+            this.setState({ Error: "Field should not be empty" });
+            return
+        }
+
 
         axios.post('http://localhost:3001/PostProject', data)
             .then(function (response) {
@@ -77,38 +85,43 @@ export default class PostProject extends Component {
 
                 <Navbar />
 
-             
-                    <div className="gig-create-container">
-                  
-                        <div className="gig-detail">
-                            <label for="gig-title">Title :</label>
-                            <input className="Input-Style" type="text" name="gigTitle" onChange={(e) => this.onChangeInput(e)} />
 
-                            <label for="gig-description" >Description :</label>
-                            <textarea className="gig-description" name="gigDescription" rows="10" cols="10" onChange={(e) => this.onChangeInput(e)} />
+                <div className="gig-create-container">
 
-                            <label for="gig-skill">Skills :</label>
-                            <input className="Input-Style" type="text" name="gigSkill" onChange={(e) => this.onChangeInput(e)} />
+                    <div className="gig-detail">
+                        <label for="gig-title">Title :</label>
+                        <input className="Input-Style" type="text" name="gigTitle" onChange={(e) => this.onChangeInput(e)} />
+
+                        <label for="gig-description" >Description :</label>
+                        <textarea className="gig-description" name="gigDescription" rows="10" cols="10" onChange={(e) => this.onChangeInput(e)} />
+
+                        <label for="gig-skill">Skills :</label>
+                        <input className="Input-Style" type="text" name="gigSkill" onChange={(e) => this.onChangeInput(e)} />
 
 
-                            <div className="small-detail">
+                        <div className="small-detail">
 
-                                <label for="gig-pricing" >Pricing :</label>
-                                <input className="Input-Style" type="text" name="gigPricing" onChange={(e) => this.onChangeInput(e)} />
+                            <label for="gig-pricing" >Pricing :</label>
+                            <input className="Input-Style" type="text" name="gigPricing" onChange={(e) => this.onChangeInput(e)} />
 
-                                <label for="gig-deliveryTime" >Delivery Time :</label>
-                                <input className="Input-Style" type="text" name="gigDeliveryTime" onChange={(e) => this.onChangeInput(e)} />
-
-                            </div>
-
-                            <div className="submit-gig-detail">
-                            <Link to="/Buyer"><button type="submit" className="submit-post-detail-button" onClick={this.Post.bind(this)}>Submit</button></Link>
-                            </div>
+                            <label for="gig-deliveryTime" >Delivery Time :</label>
+                            <input className="Input-Style" type="text" name="gigDeliveryTime" onChange={(e) => this.onChangeInput(e)} />
 
                         </div>
-                    
+
+                        <div style={{ color: 'red' }}>
+                            {this.state.Error}
+                        </div>
+
+
+                        <div className="submit-gig-detail">
+                           <button type="submit" className="submit-post-detail-button" onClick={this.Post.bind(this)}>Submit</button>
+                        </div>
+
                     </div>
-              
+
+                </div>
+
             </div>
         )
     }

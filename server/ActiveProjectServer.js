@@ -11,35 +11,35 @@ const conn = mysql.createConnection({
 
 conn.connect();
 
-exports.update=function(req,respond){
+exports.update = function (req, respond) {
     console.log(req.body.Project_id);
-    let sql3="insert into freelancer_active_project select * from bid_project where Post_Project_id='"+req.body.Project_id+"'  ";
-    conn.query(sql3,(err,result)=>{
-        if(err){
+    let sql3 = "insert into freelancer_active_project select * from bid_project where Post_Project_id='" + req.body.Project_id + "'  ";
+    conn.query(sql3, (err, result) => {
+        if (err) {
             console.log(err);
         }
     })
 
 
 
-    let sql1="delete from bid_project where Post_Project_id='"+req.body.Project_id+"'";
-    conn.query(sql1,(err,result)=>{
-        if(err){
+    let sql1 = "delete from bid_project where Post_Project_id='" + req.body.Project_id + "'";
+    conn.query(sql1, (err, result) => {
+        if (err) {
             console.log(err);
         }
-        else{
+        else {
             console.log("deleted successfully");
         }
     })
 
 
 
-    let sql2="update project_post set Project_Status='"+ 1 +"' where Project_id='"+ req.body.Project_id +"'";
-    conn.query(sql2,(err,result)=>{
-        if(err){
+    let sql2 = "update project_post set Project_Status='" + 1 + "' where Project_id='" + req.body.Project_id + "'";
+    conn.query(sql2, (err, result) => {
+        if (err) {
             console.log(err);
         }
-        else{
+        else {
             console.log("updated successfully");
             respond.send("1");
 
@@ -49,15 +49,18 @@ exports.update=function(req,respond){
 }
 
 
-exports.fetch=function(req,respond){
-    let sql="select * from project_post where Project_Status='"+1+"'  and Username='"+req.body.user+"'";
-    conn.query(sql,(err,result)=>{
-        if(err){
+exports.fetch = function (req, respond) {
+    let sql = "select * from project_post where Project_Status='" + 1 + "'  and Username='" + req.body.user + "'";
+
+    conn.query(sql, (err, result) => {
+        if (err) {
             console.log(err);
         }
-        else{
-          
+        else {
+
             respond.send(result);
+            console.log(result);
         }
     })
 }
+

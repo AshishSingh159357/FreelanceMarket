@@ -92,7 +92,7 @@ export default class Login extends Component {
                      <h2>Login</h2>
                      <form>
                         <input className="username-input" type="text" name="username" placeholder="Username" onChange={(e) => this.changeInput(e)} />
-                        <input className="password-input" type="text" name="password" placeholder="Password" onChange={(e) => this.changeInput(e)} />
+                        <input className="password-input" type="password" name="password" placeholder="Password" onChange={(e) => this.changeInput(e)} />
                      </form>
                      <div style={{ color: 'red' }}>
                            {this.state.UsernameError}

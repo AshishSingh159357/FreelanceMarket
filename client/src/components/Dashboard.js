@@ -14,6 +14,7 @@ export default class Dashboard extends Component {
         var login = "true";
         const ActiveProject = [];
         const Reviews = []
+        const completeProject = []
 
         if (token == null) {
             //this.setState({login:"false"})
@@ -23,8 +24,11 @@ export default class Dashboard extends Component {
         this.state = {
             login,
             ActiveProject,
+            completeProject,
             Reviews
         }
+
+
 
     }
 
@@ -45,6 +49,16 @@ export default class Dashboard extends Component {
                 this.setState({ Reviews: response.data });
 
             }.bind(this));
+
+
+        axios.post('http://localhost:3001/completeProject', { freelancer: localStorage.getItem("token") })
+            .then(function (response) {
+                //   alert(response.data[0].GigTitle);
+
+                this.setState({ completeProject: response.data });
+
+            }.bind(this));
+
 
 
 
@@ -72,7 +86,7 @@ export default class Dashboard extends Component {
                             <div className="Reviews">{R.buyer}</div>
 
                         ))}
-                       
+
                     </div>
 
 
@@ -80,15 +94,15 @@ export default class Dashboard extends Component {
                         <div className="dashboard-section-1">
                             <div>
                                 <h6>Completed Project</h6>
-                                <p>20</p>
+                                <p>{this.state.completeProject.length}</p>
                             </div>
                             <div>
                                 <h6>Cancel Project</h6>
-                                <p>40</p>
+                                <p>0</p>
                             </div>
                             <div>
                                 <h6>Active Projects</h6>
-                                <p>30</p>
+                                <p>{this.state.ActiveProject.length}</p>
                             </div>
                         </div>
 
@@ -96,7 +110,6 @@ export default class Dashboard extends Component {
                             <div className="heading">
                                 <h4>Active Projects</h4>
                             </div>
-
 
 
                             <div className="Active-project-list">

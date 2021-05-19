@@ -8,12 +8,12 @@ import Navbar from './Navbar';
 export default function PostProjectDetail({ match }) {
 
     const [item, setItem] = useState({});
-    const [skill,setSkill] = useState({});
+    const [skill, setSkill] = useState({});
     const [bid, setBid] = useState({});
     const [Price, setPrice] = useState({});
     const [Duration, setDuration] = useState({});
 
-
+    const [Detail, setDetail] = useState({});
 
 
     useEffect(() => {
@@ -33,16 +33,19 @@ export default function PostProjectDetail({ match }) {
         var name = event.target.name;
         var value = event.target.value;
         setBid({ [name]: value });
+        setDetail({ Error: "" });
     }
     function onChangeInput2(event) {
         var name = event.target.name;
         var value = event.target.value;
         setPrice({ [name]: value });
+        setDetail({ Error: "" });
     }
     function onChangeInput3(event) {
         var name = event.target.name;
         var value = event.target.value;
         setDuration({ [name]: value });
+        setDetail({ Error: "" });
     }
 
 
@@ -56,7 +59,11 @@ export default function PostProjectDetail({ match }) {
             Price: Price.Price,
             Duration: Duration.Duration,
             Description: bid.Description
+        }
 
+        if (!Price.Price || !Duration.Duration || !bid.Description) {
+            setDetail({ Error: "Feilds Should not be Empty" });
+            return
         }
 
         axios.post('http://localhost:3001/Bid', data)
@@ -71,6 +78,9 @@ export default function PostProjectDetail({ match }) {
         alert("Offer Send Successfully");
     }
 
+
+
+
     return (
         <div>
             <Navbar />
@@ -82,7 +92,7 @@ export default function PostProjectDetail({ match }) {
 
 
                     <div className="Project-Desc">
-                      
+
                         <p>{item.Project_Desc}</p>
 
                         <div className="Skill-section">
@@ -126,6 +136,12 @@ export default function PostProjectDetail({ match }) {
                             <textarea name="Description" onChange={(e) => onChangeInput(e)}></textarea>
                         </div>
                     </div>
+
+                    <div style={{ color: 'red' }}>
+                        {Detail.Error}
+                    </div>
+
+                    
                     <div className="Send-Offer-Button">
                         <button onClick={() => Bid()} >Send Offer</button>
                     </div>
